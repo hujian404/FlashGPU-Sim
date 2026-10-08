@@ -4236,11 +4236,13 @@ void cuda_runtime_api::cuobjdumpInit_internal(
   CUctx_st *context = GPGPUSim_Context(gpgpu_ctx);
   ctx_extract_code_func();  // extract all the output of cuobjdump to
                             // _cuobjdump_*.*
+#if (CUDART_VERSION < 6000)
   const char *pre_load = getenv("CUOBJDUMP_SIM_FILE");
   if (pre_load == NULL || strlen(pre_load) == 0) {
     cuobjdumpSectionList = pruneSectionList(context);
     cuobjdumpSectionList = mergeSections();
   }
+#endif
 }
 
 void cuda_runtime_api::cuobjdumpInit(const char *fn) {
