@@ -3,7 +3,8 @@
 `collect_baseline_metrics.py` converts one FlashGPU-Sim log into a versioned
 JSON record. It records the code commit, configuration and artifact hashes,
 return code, resource use, functional success markers, final simulator metrics,
-and the last periodic progress sample.
+the last periodic progress sample, local request/reply network utilization,
+transport service-limit counters, and the reported top hotspot nodes.
 
 Example:
 

@@ -34,6 +34,10 @@ gpu_tot_occupancy = 8.3333%
 L2_total_cache_accesses = 829600
 L2_total_cache_misses = 430084
 L2_total_cache_miss_rate = 0.5184
+Req_Network_cycles = 73038
+Req_Network_injected_packets_per_cycle = 11.3568
+Req_output_transport_width_limited_ticks = 248194
+Req_Network_max_input_occupancy_top = 24:53 26:52
 Validation PASSED for arg[2]
 GPGPU-Sim: *** exit detected ***
 """
@@ -47,6 +51,15 @@ GPGPU-Sim: *** exit detected ***
         self.assertEqual(parsed["last_progress"]["completed"], 39)
         self.assertTrue(parsed["success_markers"]["validation_passed"])
         self.assertTrue(parsed["has_final_statistics"])
+        self.assertEqual(parsed["noc_metrics"]["Req_Network_cycles"], 73038)
+        self.assertEqual(
+            parsed["noc_metrics"]["Req_output_transport_width_limited_ticks"],
+            248194,
+        )
+        self.assertEqual(
+            parsed["noc_hotspots"]["Req_Network_max_input_occupancy_top"][0],
+            {"node": 24, "count": 53},
+        )
 
     def test_flags_unimplemented_driver_synchronization(self):
         log = """\

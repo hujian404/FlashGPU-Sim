@@ -29,6 +29,21 @@ PROGRESS_RE = re.compile(
     r"(?P<completed>\d+)/(?P<total>\d+)"
 )
 
+NOC_SCALAR_RE = re.compile(
+    r"^(?P<name>(?:Req|Reply)_Network_(?:injected_packets_num|cycles|"
+    r"injected_packets_per_cycle|conflicts_per_cycle|conflicts_per_cycle_util|"
+    r"in_buffer_full_per_cycle|in_buffer_avg_util|out_buffer_full_per_cycle|"
+    r"out_buffer_avg_util)|[A-Za-z0-9_]+_(?:width_limited_ticks|"
+    r"downstream_full_ticks|service_ticks|max_service_slots_per_tick))\s*=\s*"
+    r"(?P<value>[0-9.eE+-]+)\s*$",
+    flags=re.MULTILINE,
+)
+
+NOC_TOP_RE = re.compile(
+    r"^(?P<name>(?:Req|Reply)_Network_[A-Za-z0-9_]+_top)\s*=\s*(?P<items>.*)$",
+    flags=re.MULTILINE,
+)
+
 
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
@@ -89,6 +104,16 @@ def parse_log(path: Path) -> dict[str, object]:
     synchronization_warning = (
         "not been implemented yet CUresult cuCtxSynchronize" in text
     )
+    noc_metrics = {
+        match.group("name"): parse_number(match.group("value"))
+        for match in NOC_SCALAR_RE.finditer(text)
+    }
+    noc_hotspots = {}
+    for match in NOC_TOP_RE.finditer(text):
+        items = re.findall(r"(\d+):(\d+)", match.group("items"))
+        noc_hotspots[match.group("name")] = [
+            {"node": int(node), "count": int(count)} for node, count in items
+        ]
 
     return {
         "metrics": metrics,
@@ -96,6 +121,8 @@ def parse_log(path: Path) -> dict[str, object]:
         "success_markers": success_markers,
         "synchronization_warning": synchronization_warning,
         "has_final_statistics": metrics["sim_cycles"] is not None,
+        "noc_metrics": noc_metrics,
+        "noc_hotspots": noc_hotspots,
     }
 
 
