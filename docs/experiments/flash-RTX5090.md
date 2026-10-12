@@ -1,59 +1,91 @@
-# FlashGPU-Sim RTX 5090 复现实验记录
+# FlashGPU-Sim RTX 5090 实验复现报告
 
-## 1. 当前结论
+## 摘要
 
-本分支已在 RTX 5090 主机上以普通用户权限完成 FlashGPU-Sim 构建，并在
-`SM120_RTX5090` 配置下完成三个层次的验证：CUDA VectorAdd、Triton GEMM 和
-Triton FlashAttention。2026-10-10 同步上游 `flash` 后，模拟器已重新构建，
-VectorAdd 已在新代码和新配置上重新验证通过。GEMM 与 FlashAttention 的完整结果
-来自同步前的基线，保留为可复现实验基准，后续应在新基线上重跑后再做跨版本比较。
+本实验在 RTX 5090 上复现 FlashGPU-Sim 的构建、CUDA VectorAdd、Triton GEMM 与
+Triton FlashAttention 工作流。三项 workload 使用同一代码基线和
+`SM120_RTX5090` 配置串行运行，并记录功能结果、模拟周期、指令数、IPC、occupancy、
+L2 统计、TMA 事务数和仿真墙钟时间。
 
-| 工作负载 | 输入规模 | 功能结果 | 模拟周期 | 指令数 | IPC | L2 miss rate | 基线状态 |
-| --- | --- | --- | ---: | ---: | ---: | ---: | --- |
-| VectorAdd | 2,000,000 elements | `Test PASSED` | 31,874 | 44,001,408 | 1,380.4796 | 99.91% | 最新合并基线复验 |
-| Triton GEMM | M=2560, N=64, K=2560 | 163,840 elements 全匹配 | 78,989 | 21,632,240 | 273.8640 | 51.85% | 旧基线完整运行 |
-| Triton FlashAttention | B=32, H=32, S=512, D=64, causal | kernel 成功完成 | 794,076 | 3,085,066,240 | 3,885.1021 | 36.36% | 旧基线完整运行 |
+本文既记录本次结果，也给出从环境准备到结果核验的最小完整步骤，供后续实验直接
+复用。GPU NoC 后续研究计划见 [GPU NoC 瓶颈分析与优化 Roadmap](gpu-noc-roadmap.md)。
 
-最新 VectorAdd 相比旧基线的 30,133 cycles 增加到 31,874 cycles。上游同步包含
-RTX 5090 L2、内存传输、执行时序和互连服务模型的大量更新，因此该差异不能直接
-归因于某一个部件；后续必须用固定 trace、配置差分和单因素敏感性实验定位。
+## 1. 实验目标
 
-## 2. 版本与复现状态
+1. 验证最新合并基线能够构建并运行 RTX 5090 配置；
+2. 验证 CUDA 与 Triton trace 两条工作流的功能正确性；
+3. 建立后续 GPU NoC 分析可复用的基线结果与操作流程；
+4. 记录版本、配置和运行产物，避免不同基线的数据混用。
 
-- 实验分支：`experiment/flash-RTX5090`
-- 上游仓库：`https://github.com/FlashGPU-Sim/FlashGPU-Sim.git`
-- 上游分支及同步提交：`flash@291fbe172332eb481556632a79eb9cfc93cf46bf`
-- 上游合并提交：`d5ee614da5fa1a094d27af6602636af4f3a6e318`
-- 初始复现基线：`d20ce45e3399f3a1b5b0787bdbf7c2b544a69ff9`
-- 用户级 CUDA Toolkit：12.8.2（`nvcc` 12.8.93）
-- 模拟器构建目录：`build/gcc-13.4.0/cuda-12080/release`
-- CUDA 示例 host compiler：Ubuntu GCC/G++ 12.3.0
-- 目标配置：`configs/SM120_RTX5090`
+## 2. 实验对象与控制变量
 
-结果分为两类，避免把不同代码版本的数据混用：
+### 2.1 代码与配置
 
-1. **最新基线已复验**：构建和 VectorAdd。
-2. **旧基线已完成、待重跑**：Triton GEMM 和 FlashAttention。旧数据可用于验证
-   工作流是否完整，但不应与最新配置的结果组成性能结论。
+| 项目 | 值 |
+| --- | --- |
+| 实验分支 | `experiment/flash-RTX5090` |
+| 报告整理时提交 | `26bf87477d4b6600aa074f231a4568ca793adbf4` |
+| 模拟器代码提交 | `d5ee614da5fa1a094d27af6602636af4f3a6e318` |
+| 同步的上游提交 | `flash@291fbe172332eb481556632a79eb9cfc93cf46bf` |
+| 配置 | `configs/SM120_RTX5090/gpgpusim.config` |
+| 配置 SHA-256 | `4131156c15217c9d3e6bf796462ddab93a27ed34cd5ecca85570b50e051cb2f3` |
+| 并行设置 | `OMP_NUM_THREADS=1` |
 
-## 3. 环境准备
+报告提交只修改文档，因此实际构建的模拟器 banner 显示其父提交 `d5ee614d`。三个
+workload 使用同一份该模拟器动态库和同一配置文件。
 
-所有工具安装在 `/data/home/jian.hu/work`，不需要 sudo，也不替换系统 CUDA。
+### 2.2 主机与工具链
+
+| 项目 | 值 |
+| --- | --- |
+| GPU | NVIDIA GeForce RTX 5090，32607 MiB |
+| NVIDIA driver | 580.82.07 |
+| OS kernel | Linux 6.8.0-138-generic |
+| CUDA Toolkit | 12.8.2，`nvcc` 12.8.93 |
+| CUDA host compiler | Ubuntu GCC/G++ 12.3.0 |
+| 模拟器构建目录 | `build/gcc-13.4.0/cuda-12080/release` |
+
+路径约定：
 
 ```bash
-WORK=/data/home/jian.hu/work
+WORK=.../work
 REPO="$WORK/FlashGPU-Sim"
 MAMBA_ROOT="$WORK/mamba-root"
 CUDA_ROOT="$MAMBA_ROOT/envs/flashgpu-env"
+SIM_LIB="$REPO/lib/gcc-13.4.0/cuda-12080/release"
+RUNTIME12="$WORK/flashgpu-runtime12-current"
+```
 
+### 2.3 Workload
+
+| Workload | 输入 |
+| --- | --- |
+| VectorAdd | 2,000,000 FP32 elements |
+| Triton GEMM | M=2560, N=64, K=2560 |
+| Triton FlashAttention | B=32, H=32, S=512, D=64，causal |
+
+GEMM 使用仓库附带的离线 trace；FlashAttention trace 由 RTX 5090 上的 PyTorch
+2.9.0+cu128、Triton 3.5.0 和项目内 `TritonTrace` 捕获。
+
+| Artifact | SHA-256 |
+| --- | --- |
+| GEMM PTX | `eef1d121b4051bcf3230d1335fa488fa012139b97fd17c84213489d905a9a440` |
+| GEMM CUBIN | `ac7f13a78275b255122d1abba2926b3d65bb31b7f9b8a44e3ddf616270a43be9` |
+| FlashAttention PTX | `02d797b0155195d488091e0704078d89dd371d101ca3da4c81d486b8a538d1c0` |
+| FlashAttention CUBIN | `01028e8eca7fe217773b6148795dcef38f5cabe3c61efc6394267d7475cfd37f` |
+
+## 3. 实验方法
+
+### 3.1 环境准备
+
+```bash
 "$MAMBA_ROOT/bin/micromamba" create -y -r "$MAMBA_ROOT" -n flashgpu-env \
   -c conda-forge -c nvidia \
   cuda-toolkit=12.8 flex bison zlib libglu libgl-devel \
   xorg-makedepend patchelf
 ```
 
-Conda CUDA 的架构相关头文件位于 `targets/x86_64-linux/include`，项目构建系统还会
-访问 `$CUDA_INSTALL_PATH/include`。若环境中缺少对应入口，可在用户环境内补链接：
+若 `$CUDA_ROOT/include` 下缺少架构相关 CUDA 头文件入口，可补充链接：
 
 ```bash
 for h in "$CUDA_ROOT"/targets/x86_64-linux/include/*.h; do
@@ -64,7 +96,7 @@ ln -sfn ../targets/x86_64-linux/include/crt "$CUDA_ROOT/include/crt"
 ln -sfn ../targets/x86_64-linux/include/cuda "$CUDA_ROOT/include/cuda"
 ```
 
-## 4. 构建最新基线
+### 3.2 构建模拟器
 
 ```bash
 cd "$REPO"
@@ -73,20 +105,29 @@ cd "$REPO"
   bash -c 'source setup_environment && make -j16'
 ```
 
-2026-10-10 在合并提交 `d5ee614d` 上返回码为 0。当前上游构建会生成
-`libcudart.so.12` 链接，因此旧实验中复制动态库并用 `patchelf` 修改 SONAME 的步骤
-通常不再需要。
+构建完成后确认目标库存在：
 
-本分支仍保留 CUDA 6+ PTX 初始化保护：旧的 `pruneSectionList()`/`mergeSections()`
-只在 `CUDART_VERSION < 6000` 时执行。否则 CUDA 12.8 新提取路径完成后再次处理空的
-旧列表会导致初始化中止。
+```bash
+test -f "$SIM_LIB/libcudart.so"
+```
 
-## 5. 最新基线 VectorAdd 复验
+### 3.3 准备 CUDA 12 runtime 名称
 
-### 5.1 编译
+Triton harness 使用 `-cudart none` 后显式链接模拟器库。FlashGPU-Sim 会根据应用的
+`DT_NEEDED` 项识别 CUDA major version，因此仅有无版本 SONAME 的 `libcudart.so`
+不足以完成检测。应为当前构建创建带 `libcudart.so.12` SONAME 的副本：
 
-Conda sysroot 与 `nvcc` 组合可能对 `_Float32` 等类型报错。示例程序使用系统
-G++ 12.3 作为 host compiler 可稳定编译：
+```bash
+mkdir -p "$RUNTIME12"
+cp "$SIM_LIB/libcudart.so" "$RUNTIME12/libcudart.so.12"
+"$CUDA_ROOT/bin/patchelf" \
+  --set-soname libcudart.so.12 "$RUNTIME12/libcudart.so.12"
+ln -sfn libcudart.so.12 "$RUNTIME12/libcudart.so"
+```
+
+### 3.4 VectorAdd
+
+编译时指定系统 G++，避免 Conda sysroot 与 `nvcc` 组合产生 `_Float32` 类型错误：
 
 ```bash
 cd "$REPO/tutorials/vectorAdd"
@@ -99,11 +140,8 @@ cp vectorAdd run/vectorAdd-latest
 cp -a "$REPO/configs/SM120_RTX5090/." run/
 ```
 
-### 5.2 运行
-
-新版 SASS-guided PTX reorder 会读取 `GPGPUSIM_ROOT` 和
-`PTXAS_CUDA_INSTALL_PATH`/`CUDA_INSTALL_PATH`。必须通过 `setup_environment`
-启动，不能只设置 `LD_LIBRARY_PATH`：
+运行时从仓库根目录加载环境，使 SASS-guided PTX reorder 能找到
+`GPGPUSIM_ROOT` 和 CUDA 工具：
 
 ```bash
 cd "$REPO"
@@ -114,26 +152,9 @@ CUDA_INSTALL_PATH="$CUDA_ROOT" bash -c '
 '
 ```
 
-关键输出：
+### 3.5 Triton GEMM
 
-```text
-gpu_sim_insn = 44001408
-gpu_tot_sim_cycle = 31874
-gpu_tot_ipc = 1380.4796
-gpu_tot_issued_cta = 7813
-gpu_tot_occupancy = 92.4220%
-L2_total_cache_accesses = 750680
-L2_total_cache_misses = 750004
-L2_total_cache_miss_rate = 0.9991
-Test PASSED
-GPGPU-Sim: *** exit detected ***
-```
-
-## 6. Triton GEMM（旧基线完整结果）
-
-仓库带有离线 trace。将 trace、launcher 和 RTX 5090 配置放到同一运行目录后打包
-fatbin，并链接模拟器 runtime。以下命令模板应在最新基线重跑时使用新构建目录；
-具体 launcher 名称以 trace 目录实际内容为准。
+准备 trace 和配置：
 
 ```bash
 cd "$REPO/tutorials/triton-gemm"
@@ -147,25 +168,30 @@ make -f kernel_tma_gemm_launch1_Makefile \
   kernel_tma_gemm_launch1_kernel.fatbin
 ```
 
-旧基线关键结果：
+必须在模拟器更新后重新链接 harness，不能复用指向旧模拟器 runtime 的二进制：
 
-```text
-gpu_tot_sim_cycle = 78989
-gpu_tot_sim_insn = 21632240
-gpu_tot_ipc = 273.8640
-gpu_tot_issued_cta = 40
-gpu_tot_occupancy = 8.3333%
-gpgpu_n_tma_tx_completed = 3240
-L2_total_cache_accesses = 829440
-L2_total_cache_misses = 430080
-L2_total_cache_miss_rate = 0.5185
-Validation PASSED for arg[2]: all 163840 elements match
+```bash
+"$CUDA_ROOT/bin/nvcc" -ccbin /usr/bin/g++ \
+  -arch=sm_120a -cudart none \
+  kernel_tma_gemm_launch1_harness.cu \
+  -L"$RUNTIME12" -L"$CUDA_ROOT/lib" \
+  -lcudart -lcuda -lz -lgomp \
+  -Xlinker=-rpath -Xlinker="$RUNTIME12" \
+  -Xlinker=-rpath -Xlinker="$CUDA_ROOT/lib" \
+  -o kernel_tma_gemm_launch1-latest
+
+cd "$REPO"
+CUDA_INSTALL_PATH="$CUDA_ROOT" bash -c '
+  source setup_environment
+  cd tutorials/triton-gemm/run/tracking/launchers
+  OMP_NUM_THREADS=1 ./kernel_tma_gemm_launch1-latest \
+    2>&1 | tee gemm-latest.log
+'
 ```
 
-## 7. Triton FlashAttention（旧基线完整结果）
+### 3.6 Triton FlashAttention
 
-FlashAttention 不附带预制 trace。本次使用 PyTorch 2.9.0+cu128、Triton 3.5.0
-和项目内 `TritonTrace` 在 RTX 5090 上完成真实捕获，再进行离线回放。
+首次实验需要先捕获 trace：
 
 ```bash
 "$MAMBA_ROOT/bin/micromamba" run -r "$MAMBA_ROOT" -n flashgpu-env \
@@ -178,52 +204,180 @@ VIRTUAL_ENV="$CUDA_ROOT" CUDA_INSTALL_PATH="$CUDA_ROOT" \
   bash "$REPO/tutorials/triton-flash-attention/capture.sh"
 ```
 
-捕获记录确认：1 个 kernel 编译、1 次 launch，且生成 CUBIN、PTX、metadata、harness、
-ptxinfo 和 Makefile。旧基线离线模拟耗时约 2 小时 33 分钟，约 86 simulated
-cycles/s。关键输出：
+将最新配置复制到 launcher 目录，生成 fatbin 并重新链接：
 
-```text
-gpu_tot_sim_cycle = 794076
-gpu_tot_sim_insn = 3085066240
-gpu_tot_ipc = 3885.1021
-gpu_tot_issued_cta = 8192
-gpu_tot_occupancy = 15.7341%
-gpgpu_n_tma_tx_completed = 90112
-gpgpu_n_tma_read_tx_completed = 81920
-gpgpu_n_tma_write_tx_completed = 8192
-L2_total_cache_accesses = 23068672
-L2_total_cache_misses = 8388608
-L2_total_cache_miss_rate = 0.3636
-Kernel execution completed successfully
+```bash
+cd "$REPO/tutorials/triton-flash-attention/run/tracking/launchers"
+cp -a "$REPO/configs/SM120_RTX5090/." .
+make -f flash_attention_kernel_launch1_Makefile \
+  flash_attention_kernel_launch1_kernel.fatbin
+
+"$CUDA_ROOT/bin/nvcc" -ccbin /usr/bin/g++ \
+  -arch=sm_120a -cudart none \
+  flash_attention_kernel_launch1_harness.cu \
+  -L"$RUNTIME12" -L"$CUDA_ROOT/lib" \
+  -lcudart -lcuda -lz -lgomp \
+  -Xlinker=-rpath -Xlinker="$RUNTIME12" \
+  -Xlinker=-rpath -Xlinker="$CUDA_ROOT/lib" \
+  -o flash_attention_kernel_launch1-latest
+
+cd "$REPO"
+CUDA_INSTALL_PATH="$CUDA_ROOT" bash -c '
+  source setup_environment
+  cd tutorials/triton-flash-attention/run/tracking/launchers
+  OMP_NUM_THREADS=1 ./flash_attention_kernel_launch1-latest \
+    2>&1 | tee flashattention-latest.log
+'
 ```
 
-## 8. 结果解读边界
+## 4. 新基线实验结果
 
-- `gpu_tot_ipc` 是全 GPU 汇总值，不能直接与单 SM IPC 比较。
-- 高 L2 miss rate 不等价于 NoC 是瓶颈；必须同时观察注入率、队列占用、冲突、
-  width-limited/downstream-full 周期以及反事实带宽扫描。
-- GEMM 与 FlashAttention 使用 TMA，普通 global load/store 计数可能为 0；应结合
-  `gpgpu_n_tma_*` 和 L2 流量判断。
-- `OMP_NUM_THREADS=1` 用于控制共享服务器 CPU 占用，它影响仿真墙钟时间，不应改变
-  模拟周期结果。
-- 当前配置是有效模型，不是 RTX 5090 物理拓扑的逐项公开还原；单个 workload 的拟合
-  可能包含多个部件误差的抵消。
+### 4.1 汇总
 
-## 9. 已知问题与排障
+| Workload | 功能结果 | 模拟周期 | 指令数 | IPC | Occupancy | L2 miss rate | 墙钟时间 |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| VectorAdd | `Test PASSED` | 31,874 | 44,001,408 | 1,380.4796 | 92.4220% | 99.91% | 257.33 s |
+| Triton GEMM | 163,840 elements 全匹配 | 73,038 | 21,826,800 | 298.8417 | 8.3333% | 51.84% | 161.36 s |
+| Triton FlashAttention | kernel 完整执行、正常退出 | 730,001–739,999 | 未输出 | 未输出 | 未输出 | 未输出 | 9,816.46 s |
 
-| 现象 | 原因 | 处理 |
+### 4.2 VectorAdd
+
+```text
+gpu_tot_sim_cycle = 31874
+gpu_tot_sim_insn = 44001408
+gpu_tot_ipc = 1380.4796
+gpu_tot_issued_cta = 7813
+gpu_tot_occupancy = 92.4220%
+L2_total_cache_accesses = 750680
+L2_total_cache_misses = 750004
+L2_total_cache_miss_rate = 0.9991
+Test PASSED
+```
+
+最大常驻内存约 5,233,684 KiB。结果与同一新基线的前一次复验完全一致，说明固定
+trace/config 下模拟周期和主要计数可重复。
+
+### 4.3 Triton GEMM
+
+```text
+gpu_tot_sim_cycle = 73038
+gpu_tot_sim_insn = 21826800
+gpu_tot_ipc = 298.8417
+gpu_tot_issued_cta = 40
+gpu_tot_occupancy = 8.3333%
+gpgpu_n_tma_tx_completed = 3240
+gpgpu_n_tma_read_tx_completed = 3200
+gpgpu_n_tma_write_tx_completed = 40
+L2_total_cache_accesses = 829600
+L2_total_cache_misses = 430084
+L2_total_cache_miss_rate = 0.5184
+Validation PASSED for arg[2]: all 163840 elements match
+```
+
+墙钟时间 161.36 s，最大常驻内存约 4,299,724 KiB。相比早期基线记录的 78,989
+cycles，新基线减少 5,951 cycles（约 7.53%）；该变化来自合并后模型的综合更新，
+不能在没有单因素实验的情况下归因于某个单独组件。
+
+### 4.4 Triton FlashAttention
+
+本次运行返回码为 0，日志包含 `Kernel execution completed successfully` 和
+`GPGPU-Sim: *** exit detected ***`。最后一个周期采样点为：
+
+```text
+Progress: cycle=730000 CTA total=8192 launched=8192/8192 completed=8187/8192
+Progress TMA tx: started=90107 (R=81920, W=8187)
+                 completed=90107 (R=81920, W=8187)
+Progress TMA bytes: issued=738156544 done=738156544
+Kernel execution completed successfully
+GPGPU-Sim: *** exit detected ***
+```
+
+运行在 730,000 周期采样后完成、且没有产生 740,000 周期采样，因此总周期位于
+`730,001–739,999`。墙钟时间 9,816.46 s（约 2 小时 43 分 36 秒），最大常驻内存
+约 6,199,096 KiB。
+
+当前 driver-API harness 在新基线上未打印 `gpu_tot_*`、最终 L2 汇总和最后不足
+10,000 周期的统计。这里不使用插值或旧基线数值填补缺失项。相较早期记录的
+794,076 cycles，新基线至少缩短约 6.81%，至多约 8.07%；精确比较需要先补齐退出时
+统计输出，再重跑确认。
+
+## 5. 结果讨论
+
+### 5.1 功能正确性
+
+VectorAdd 以 `Test PASSED` 为成功条件；GEMM 必须报告所有输出元素匹配；
+FlashAttention 当前 harness 的成功条件是 kernel 完整执行且模拟器正常退出。后者
+没有像 GEMM 一样逐元素比较输出，因此“运行成功”和“数值验证完成”应明确区分。
+
+### 5.2 性能指标解释
+
+- `gpu_tot_ipc` 是全 GPU 汇总值，不能直接与单 SM IPC 比较；
+- 高 L2 miss rate 不能单独证明 NoC 是瓶颈；还需结合网络注入率、队列、冲突、
+  width-limited/downstream-full 周期和理想网络反事实实验；
+- GEMM 与 FlashAttention 使用 TMA，普通 global load/store 计数可能为 0，应同时查看
+  `gpgpu_n_tma_*` 与 L2 流量；
+- `OMP_NUM_THREADS=1` 控制仿真主机资源使用，影响墙钟时间，不应改变模拟周期。
+
+### 5.3 模型边界
+
+`SM120_RTX5090` 是有效性能模型，不是物理芯片拓扑的逐项公开还原。某个 workload
+上的接近可能来自多个组件误差的抵消，因此后续 NoC 结论必须依赖多 workload、
+单因素扫描和反事实对照。
+
+## 6. 可复现性检查清单
+
+每次新实验至少保存：
+
+- Git commit 与工作区是否干净；
+- `gpgpusim.config` 的 SHA-256；
+- trace/PTX/CUBIN 的 hash；
+- host compiler、CUDA、driver 版本；
+- 完整运行命令、环境变量与返回码；
+- stdout/stderr 原始日志；
+- 开始/结束时间、墙钟时间和最大常驻内存；
+- 从日志提取的 CSV/JSON 汇总。
+
+建议每次运行创建独立目录，并使用如下结构：
+
+```text
+experiment-run/
+  manifest.json
+  config.sha256
+  vectoradd.log
+  gemm.log
+  flashattention.log
+  metrics.csv
+```
+
+只有返回码为 0 且功能成功标志存在的运行才能进入结果表。
+
+## 7. 常见问题
+
+| 现象 | 原因 | 处理方法 |
 | --- | --- | --- |
-| `No PTX sections found` | binary/配置/提取路径不一致，或旧初始化路径误处理 | 同时生成 `sm_120a` 和 `compute_120a`，保留本分支初始化保护 |
-| `_Float32 is undefined` | Conda sysroot 与 nvcc host 编译组合不兼容 | 示例用 `-ccbin /usr/bin/g++` |
-| `guide generation requires GPGPUSIM_ROOT...` | 未加载新版 guide 环境 | 从仓库根目录 `source setup_environment` 后运行 |
-| 运行加载真实 CUDA runtime | 动态库搜索顺序错误 | 通过 `setup_environment` 启动，并用 `ldd` 核对 |
-| 长任务 SSH 断开 | 详细仿真墙钟时间很长 | 使用 tmux/nohup，保存命令、配置、stdout/stderr 和返回码 |
+| `_Float32 is undefined` | Conda sysroot 与 nvcc host 编译组合不兼容 | 使用 `-ccbin /usr/bin/g++` |
+| `Cannot detect the app's CUDA version` | harness 依赖无版本 SONAME | 创建 `libcudart.so.12` runtime 副本并重新链接 |
+| `Unknown Option` | 旧 harness 加载了旧模拟器库或旧配置 | 复制最新配置、重新链接，并用 `ldd` 核对 |
+| guide generation 缺少环境变量 | 未加载项目环境 | 从仓库根目录 `source setup_environment` |
+| `No PTX sections found` | PTX 架构或提取路径不匹配 | 同时生成 `sm_120a`/`compute_120a` 并核对配置 |
+| driver harness 正常退出但无最终汇总 | 退出路径未调用完整 `print_stats()` | 保留最后周期采样区间；后续补齐退出统计后重跑 |
 
-早期文件 `vectoradd-final.log` 实际停在 PTX 提取错误；旧基线成功证据位于
-`vectoradd-patched.log`。本文不再把失败日志当作成功结果来源。
+旧 launcher 可能带有指向历史 runtime 的 RPATH。每次模拟器更新后都应重新链接，并
+执行以下检查：
 
-## 10. 下一步
+```bash
+ldd ./kernel_tma_gemm_launch1-latest | grep libcudart
+readelf -d ./kernel_tma_gemm_launch1-latest | grep NEEDED
+```
 
-GPU NoC 的工作负载选择、指标、实验矩阵、优化候选和阶段验收标准见
-[GPU NoC 瓶颈分析与优化 Roadmap](gpu-noc-roadmap.md)。在进入设计优化前，应先在
-最新提交上重跑 GEMM 与 FlashAttention，并把原始结果整理为可机读 CSV/JSON。
+预期加载本次生成的 runtime，且 `DT_NEEDED` 包含 `libcudart.so.12`。
+
+## 8. 结论与后续工作
+
+本实验完成了三个 workload 的新基线运行，VectorAdd 与 GEMM 给出完整汇总，
+FlashAttention 完整运行但暴露了 driver harness 退出统计缺失。VectorAdd 结果可重复，
+GEMM 通过逐元素验证；这些结果可作为 GPU NoC 研究的初始对照组。
+
+下一步应先修复 FlashAttention 最终统计，再补齐 local/global NoC 的逐端口吞吐、
+排队延迟和阻塞原因，之后使用定向微基准及 GEMM、FlashAttention、MoE 等模型负载
+开展瓶颈归因和设计优化。
