@@ -5370,7 +5370,12 @@ CUresult CUDAAPI cuCtxSynchronize(void) {
   if (g_debug_execution >= 3) {
     announce_call(__my_func__);
   }
-  printf("WARNING: this function has not been implemented yet %s\n", __my_func__);
+  // The driver API has the same device-wide synchronization semantics as
+  // cudaDeviceSynchronize().  In particular, generated driver-API harnesses
+  // rely on this call before reading results or tearing down the context.
+  // Returning immediately lets the host exit while the simulation thread is
+  // still finishing a kernel, which also skips the final statistics flush.
+  GPGPU_Context()->synchronize();
   return CUDA_SUCCESS;
 }
 
