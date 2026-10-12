@@ -63,3 +63,22 @@ for `add_one`, and 6,520 records across 8 warps for a Triton TMA GEMM launch.
 The latter trace was converted using Accel-Sim's `post-traces-processing`.
 This verifies that the simulator-side parser can read the captured Blackwell
 trace format. It does not yet exercise FlashGPU-Sim's timing backend.
+
+### SM120 asynchronous payload audit
+
+`tracez_probe <kernelslist.g> --details` reports every TMA and `SYNCS`
+record's decoded dynamic fields. The normal mode counts active TMA records and
+returns exit code 5 if any active record lacks expanded memory addresses or
+byte count. In the RTX 5090 Triton TMA GEMM capture, 12 TMA records include
+6 predicated-off records. All 6 active records carry 8,192 addresses and a
+16,384-byte transfer. All 80 `SYNCS` records carry a memory address payload.
+This verifies capture completeness for this *one* kernel; it does not imply
+that FlashGPU-Sim can time or synchronize these instructions yet.
+
+The upstream FlashGPU-Sim timing path expects PTX `ptx_instruction` objects in
+`shader_core_ctx::issue_warp` for dynamic mbarrier and TMA handling, while the
+Accel-Sim trace frontend constructs `trace_warp_inst_t` objects. A trace
+frontend must replace those PTX-specific casts with an instruction-neutral
+interface and translate the tracer's expanded TMA addresses into the native
+TMA engine's request representation. Copying Accel-Sim's frontend directly
+would bypass or misinterpret the FlashGPU-Sim asynchronous state machine.
