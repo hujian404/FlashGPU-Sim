@@ -1,5 +1,18 @@
 # GPU NoC 瓶颈分析与优化 Roadmap
 
+## 当前进展
+
+- Phase 0：已修复 driver API 同步语义，避免 kernel 尚未完成时进程退出；已完成
+  VectorAdd、GEMM 基线复验，FlashAttention 正在按修复后的同步路径重跑。
+- Phase 0：已增加 `scripts/experiments/collect_baseline_metrics.py`，统一保存 commit、
+  config/trace hash、返回码、资源开销、功能成功标志和最终模拟统计。
+- Phase 1：采集器已接入现有 local/global NoC 的注入率、冲突、buffer utilization、
+  service、width-limited、downstream-full 及热点端口统计。下一步补充 packet/queueing
+  latency 分位数和按请求类型拆分的流量矩阵。
+
+基线数据只在返回码为 0、功能成功标志成立且包含 `gpu_tot_sim_cycle` 等最终统计时
+标记为完整。周期采样点不能替代最终统计。
+
 ## 1. 目标与范围
 
 目标是在 RTX 5090 配置上建立可重复、可归因的 GPU NoC 分析流程，分别回答：
