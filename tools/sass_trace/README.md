@@ -46,3 +46,20 @@ must parse and validate it without silently dropping transfer information.
 
 Accel-Sim tracer source and format:
 https://github.com/accel-sim/accel-sim-framework/tree/dev/util/tracer_nvbit
+
+## Native `.tracez` parser gate
+
+The Accel-Sim parser has been imported with its license under
+`src/trace-parser/`. The native probe traverses each CTA and warp, decompresses
+all instruction records, rejects non-SM120 traces, and counts the records:
+
+```bash
+CUDA_INSTALL_PATH=/path/to/cuda make -C tools/sass_trace
+build/tools/tracez_probe /path/to/traces/kernelslist.g
+```
+
+On the RTX 5090, this matched the raw-trace counts: 36 records across 4 warps
+for `add_one`, and 6,520 records across 8 warps for a Triton TMA GEMM launch.
+The latter trace was converted using Accel-Sim's `post-traces-processing`.
+This verifies that the simulator-side parser can read the captured Blackwell
+trace format. It does not yet exercise FlashGPU-Sim's timing backend.
