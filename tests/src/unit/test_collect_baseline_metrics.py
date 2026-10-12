@@ -26,6 +26,7 @@ class CollectBaselineMetricsTest(unittest.TestCase):
 
     def test_parses_final_metrics_and_progress(self):
         log = """\
+FlashGPU-Sim startup banner
 Progress: cycle=70000 CTA total=40 launched +0=40/40 completed +1=39/40
 gpu_tot_sim_cycle = 73038
 gpu_tot_sim_insn = 21826800

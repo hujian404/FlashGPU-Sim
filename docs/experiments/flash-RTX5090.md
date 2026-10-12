@@ -238,7 +238,7 @@ CUDA_INSTALL_PATH="$CUDA_ROOT" bash -c '
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | VectorAdd | `Test PASSED` | 31,874 | 44,001,408 | 1,380.4796 | 92.4220% | 99.91% | 257.33 s |
 | Triton GEMM | 163,840 elements 全匹配 | 73,038 | 21,826,800 | 298.8417 | 8.3333% | 51.84% | 161.36 s |
-| Triton FlashAttention | kernel 完整执行、正常退出 | 730,001–739,999 | 未输出 | 未输出 | 未输出 | 未输出 | 9,816.46 s |
+| Triton FlashAttention | kernel 完整执行、正常退出 | 733,712 | 3,154,432,640 | 4,299.2788 | 16.3385% | 36.36% | 9,718.78 s |
 
 ### 4.2 VectorAdd
 
@@ -280,26 +280,34 @@ cycles，新基线减少 5,951 cycles（约 7.53%）；该变化来自合并后�
 
 ### 4.4 Triton FlashAttention
 
-本次运行返回码为 0，日志包含 `Kernel execution completed successfully` 和
-`GPGPU-Sim: *** exit detected ***`。最后一个周期采样点为：
+修复 `cuCtxSynchronize()` 后重新构建 runtime 和 harness，并从头运行完整 workload。
+本次返回码为 0，8192 个 CTA 全部完成，日志包含最终统计、
+`Kernel execution completed successfully` 和 `GPGPU-Sim: *** exit detected ***`：
 
 ```text
-Progress: cycle=730000 CTA total=8192 launched=8192/8192 completed=8187/8192
-Progress TMA tx: started=90107 (R=81920, W=8187)
-                 completed=90107 (R=81920, W=8187)
-Progress TMA bytes: issued=738156544 done=738156544
+gpu_tot_sim_cycle = 733712
+gpu_tot_sim_insn = 3154432640
+gpu_tot_ipc = 4299.2788
+gpu_tot_issued_cta = 8192
+gpu_tot_occupancy = 16.3385%
+gpgpu_n_tma_tx_completed = 90112
+gpgpu_n_tma_read_tx_completed = 81920
+gpgpu_n_tma_write_tx_completed = 8192
+L2_total_cache_accesses = 23070032
+L2_total_cache_misses = 8388616
+L2_total_cache_miss_rate = 0.3636
 Kernel execution completed successfully
 GPGPU-Sim: *** exit detected ***
 ```
 
-运行在 730,000 周期采样后完成、且没有产生 740,000 周期采样，因此总周期位于
-`730,001–739,999`。墙钟时间 9,816.46 s（约 2 小时 43 分 36 秒），最大常驻内存
-约 6,199,096 KiB。
+墙钟时间 9,718.78 s（约 2 小时 41 分 59 秒），最大常驻内存约 6,197,904 KiB。
+相较早期记录的 794,076 cycles，新基线减少 60,364 cycles（约 7.60%）。采集器确认
+配置和 PTX/CUBIN hash 与本报告记录一致，且日志中不再出现未实现同步警告。
 
-当前 driver-API harness 在新基线上未打印 `gpu_tot_*`、最终 L2 汇总和最后不足
-10,000 周期的统计。这里不使用插值或旧基线数值填补缺失项。相较早期记录的
-794,076 cycles，新基线至少缩短约 6.81%，至多约 8.07%；精确比较需要先补齐退出时
-统计输出，再重跑确认。
+该问题的根因不是统计打印函数本身，而是 driver API 的 `cuCtxSynchronize()` 原先为
+直接返回成功的空实现。harness 在模拟线程尚未完成时退出，旧日志最后一次采样仅完成
+8187/8192 个 CTA，因此无法产生最终汇总。现在该 API 调用模拟器上下文的
+`synchronize()`，只有所有 CTA 和事务完成后才返回。
 
 ## 5. 结果讨论
 
@@ -360,7 +368,7 @@ experiment-run/
 | `Unknown Option` | 旧 harness 加载了旧模拟器库或旧配置 | 复制最新配置、重新链接，并用 `ldd` 核对 |
 | guide generation 缺少环境变量 | 未加载项目环境 | 从仓库根目录 `source setup_environment` |
 | `No PTX sections found` | PTX 架构或提取路径不匹配 | 同时生成 `sm_120a`/`compute_120a` 并核对配置 |
-| driver harness 正常退出但无最终汇总 | 退出路径未调用完整 `print_stats()` | 保留最后周期采样区间；后续补齐退出统计后重跑 |
+| driver harness 正常退出但无最终汇总 | `cuCtxSynchronize()` 为空实现，进程早于模拟线程退出 | 更新到含同步修复的提交，重建 runtime、重新链接 harness 并完整重跑 |
 
 旧 launcher 可能带有指向历史 runtime 的 RPATH。每次模拟器更新后都应重新链接，并
 执行以下检查：
@@ -374,10 +382,9 @@ readelf -d ./kernel_tma_gemm_launch1-latest | grep NEEDED
 
 ## 8. 结论与后续工作
 
-本实验完成了三个 workload 的新基线运行，VectorAdd 与 GEMM 给出完整汇总，
-FlashAttention 完整运行但暴露了 driver harness 退出统计缺失。VectorAdd 结果可重复，
-GEMM 通过逐元素验证；这些结果可作为 GPU NoC 研究的初始对照组。
+本实验完成了三个 workload 的新基线运行，并修复了 driver harness 的同步语义。
+VectorAdd 与 GEMM 的功能验证通过；FlashAttention 的 8192 个 CTA 全部完成并输出
+完整最终统计。这些结果可作为 GPU NoC 研究的初始对照组。
 
-下一步应先修复 FlashAttention 最终统计，再补齐 local/global NoC 的逐端口吞吐、
-排队延迟和阻塞原因，之后使用定向微基准及 GEMM、FlashAttention、MoE 等模型负载
-开展瓶颈归因和设计优化。
+下一步继续补齐 local/global NoC 的逐端口排队延迟分位数和按请求类型拆分的流量
+矩阵，再使用定向微基准及 GEMM、FlashAttention、MoE 等模型负载开展瓶颈归因。

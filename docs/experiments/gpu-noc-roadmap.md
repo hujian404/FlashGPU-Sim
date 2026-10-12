@@ -2,8 +2,8 @@
 
 ## 当前进展
 
-- Phase 0：已修复 driver API 同步语义，避免 kernel 尚未完成时进程退出；已完成
-  VectorAdd、GEMM 基线复验，FlashAttention 正在按修复后的同步路径重跑。
+- Phase 0：已修复 driver API 同步语义，避免 kernel 尚未完成时进程退出；VectorAdd、
+  GEMM、FlashAttention 基线均已完成，FlashAttention 最终周期为 733,712。
 - Phase 0：已增加 `scripts/experiments/collect_baseline_metrics.py`，统一保存 commit、
   config/trace hash、返回码、资源开销、功能成功标志和最终模拟统计。
 - Phase 1：采集器已接入现有 local/global NoC 的注入率、冲突、buffer utilization、

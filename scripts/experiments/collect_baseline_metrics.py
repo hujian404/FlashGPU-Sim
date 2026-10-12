@@ -26,7 +26,8 @@ SCALAR_PATTERNS = {
 
 PROGRESS_RE = re.compile(
     r"^Progress: cycle=(?P<cycle>\d+).*completed(?:\s+\+\d+)?="
-    r"(?P<completed>\d+)/(?P<total>\d+)"
+    r"(?P<completed>\d+)/(?P<total>\d+)",
+    flags=re.MULTILINE,
 )
 
 NOC_SCALAR_RE = re.compile(
