@@ -3400,6 +3400,49 @@ void cvt_impl(const ptx_instruction *pI, ptx_thread_info *thread) {
   unsigned rounding_mode = pI->rounding_mode();
   unsigned saturation_mode = pI->saturation_mode();
 
+  // BF16 formats have type_decode indices beyond the legacy 11x11 table.
+  // Handle the conversions emitted by BF16 Triton kernels before indexing it.
+  if ((to_type == BF16_TYPE || to_type == BF16X2_TYPE) &&
+      from_type == F32_TYPE) {
+    if (saturation_mode || (rounding_mode != RN_OPTION &&
+                            rounding_mode != RNI_OPTION)) {
+      fprintf(stderr, "Unsupported BF16 cvt modifier: %s\n", pI->to_string().c_str());
+      abort();
+    }
+    auto round_bf16 = [](ptx_reg_t value) -> unsigned {
+      unsigned bits = value.u32;
+      // Preserve infinity; canonicalize NaNs to a quiet BF16 NaN.
+      if ((bits & 0x7f800000u) == 0x7f800000u)
+        return (bits >> 16) | ((bits & 0x007fffffu) ? 0x40u : 0u);
+      return (bits + 0x7fffu + ((bits >> 16) & 1u)) >> 16;
+    };
+    ptx_reg_t first = thread->get_operand_value(src1, dst, F32_TYPE, thread, 1);
+    ptx_reg_t result;
+    result.u32 = 0;
+    if (to_type == BF16X2_TYPE) {
+      assert(pI->get_num_operands() == 3);
+      ptx_reg_t second = thread->get_operand_value(
+          pI->get_operands()[2], dst, F32_TYPE, thread, 1);
+      // PTX cvt packs the first source in the high half, second in low.
+      result.u32 = (round_bf16(first) << 16) | round_bf16(second);
+    } else {
+      result.u16 = round_bf16(first);
+    }
+    thread->set_operand_value(dst, result, to_type, thread, pI);
+    return;
+  }
+  if (to_type == F32_TYPE && from_type == BF16_TYPE) {
+    ptx_reg_t value = thread->get_operand_value(src1, dst, BF16_TYPE, thread, 1);
+    ptx_reg_t result;
+    result.u32 = static_cast<unsigned>(value.u16) << 16;
+    thread->set_operand_value(dst, result, to_type, thread, pI);
+    return;
+  }
+  if (to_type == BF16_TYPE || to_type == BF16X2_TYPE ||
+      from_type == BF16_TYPE || from_type == BF16X2_TYPE) {
+    fprintf(stderr, "Unsupported BF16 conversion: %s\n", pI->to_string().c_str());
+    abort();
+  }
 
   int to_sign, from_sign;
   size_t from_width, to_width;

@@ -1,0 +1,373 @@
+{
+  "kernel_count": 18,
+  "repetitions": 3,
+  "gpu_span_ms": 2.111762,
+  "gpu_kernel_sum_ms_per_invocation": 0.657393,
+  "gpu_active_fraction_of_trace_span": 0.9339021158634354,
+  "stages": {
+    "Dispatch": {
+      "launches": 3,
+      "total_ms_per_invocation": 0.0014186666666666668,
+      "median_kernel_us": 1.376
+    },
+    "Gate": {
+      "launches": 3,
+      "total_ms_per_invocation": 0.22457433333333332,
+      "median_kernel_us": 224.158
+    },
+    "Up": {
+      "launches": 3,
+      "total_ms_per_invocation": 0.223444,
+      "median_kernel_us": 223.838
+    },
+    "SwiGLU": {
+      "launches": 3,
+      "total_ms_per_invocation": 0.0017493333333333334,
+      "median_kernel_us": 1.664
+    },
+    "Down": {
+      "launches": 3,
+      "total_ms_per_invocation": 0.20454266666666665,
+      "median_kernel_us": 205.502
+    },
+    "Combine": {
+      "launches": 3,
+      "total_ms_per_invocation": 0.001664,
+      "median_kernel_us": 1.632
+    }
+  },
+  "kernels": [
+    {
+      "kernel": "dispatch",
+      "stage": "Dispatch",
+      "start_ns": 0,
+      "duration_ns": 1536,
+      "grid": [
+        128,
+        8,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 16,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 115487,
+      "duration_ns": 224158,
+      "grid": [
+        1,
+        32,
+        64
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 340541,
+      "duration_ns": 224319,
+      "grid": [
+        1,
+        32,
+        64
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "swiglu",
+      "stage": "SwiGLU",
+      "start_ns": 565852,
+      "duration_ns": 1664,
+      "grid": [
+        8,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 16,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 569916,
+      "duration_ns": 208767,
+      "grid": [
+        1,
+        64,
+        64
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "combine",
+      "stage": "Combine",
+      "start_ns": 780859,
+      "duration_ns": 1632,
+      "grid": [
+        16,
+        8,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 34,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "dispatch",
+      "stage": "Dispatch",
+      "start_ns": 784955,
+      "duration_ns": 1344,
+      "grid": [
+        128,
+        8,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 16,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 787003,
+      "duration_ns": 225726,
+      "grid": [
+        1,
+        32,
+        64
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 1014361,
+      "duration_ns": 222175,
+      "grid": [
+        1,
+        32,
+        64
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "swiglu",
+      "stage": "SwiGLU",
+      "start_ns": 1237592,
+      "duration_ns": 1920,
+      "grid": [
+        8,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 16,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 1241656,
+      "duration_ns": 205502,
+      "grid": [
+        1,
+        64,
+        64
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "combine",
+      "stage": "Combine",
+      "start_ns": 1448534,
+      "duration_ns": 1600,
+      "grid": [
+        16,
+        8,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 34,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "dispatch",
+      "stage": "Dispatch",
+      "start_ns": 1452598,
+      "duration_ns": 1376,
+      "grid": [
+        128,
+        8,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 16,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 1454646,
+      "duration_ns": 223839,
+      "grid": [
+        1,
+        32,
+        64
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 1679925,
+      "duration_ns": 223838,
+      "grid": [
+        1,
+        32,
+        64
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "swiglu",
+      "stage": "SwiGLU",
+      "start_ns": 1905235,
+      "duration_ns": 1664,
+      "grid": [
+        8,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 16,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 1909331,
+      "duration_ns": 199359,
+      "grid": [
+        1,
+        64,
+        64
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "combine",
+      "stage": "Combine",
+      "start_ns": 2110002,
+      "duration_ns": 1760,
+      "grid": [
+        16,
+        8,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 34,
+      "shared_memory_bytes": 0
+    }
+  ],
+  "memcpy_events": [],
+  "scope": "CUDA activity timestamps, not SM utilization, DRAM counters, or NoC packets",
+  "case": {
+    "tokens": 16,
+    "mode": "block",
+    "pattern": "balanced",
+    "serial": false
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "kind": "synthetic_moe_block",
+  "validation": "passed",
+  "arguments": {
+    "tokens": 16,
+    "hidden": 2048,
+    "intermediate": 1024,
+    "experts": 1,
+    "topk": 1,
+    "pattern": "balanced",
+    "mode": "single",
+    "serial": false,
+    "seed": 0,
+    "repeat": 20,
+    "capture": false,
+    "profile": false,
+    "route_file": null,
+    "output": "tests/moe/run/hardware-suite/t16-single-balanced"
+  },
+  "commit": "f44abbe461eff6467ccdc40bcf62b8e692d3f2e4",
+  "config_sha256": "4131156c15217c9d3e6bf796462ddab93a27ed34cd5ecca85570b50e051cb2f3",
+  "torch": "2.9.0+cu128",
+  "triton": "3.5.0",
+  "gpu": "name, uuid, driver_version, memory.used [MiB], utilization.gpu [%]\nNVIDIA GeForce RTX 5090, <gpu>, 580.82.07, 655 MiB, 0 %",
+  "expert_counts": [
+    16
+  ],
+  "max_mean_load": 1.0,
+  "routing_source": "synthetic; equal top-k weights; not model router logits",
+  "median_ms": 0.08742399886250496,
+  "samples_ms": [
+    0.10764800012111664,
+    0.09443199634552002,
+    0.0981760025024414,
+    0.09241600334644318,
+    0.0870399996638298,
+    0.08803199976682663,
+    0.08515200018882751,
+    0.08816000074148178,
+    0.0862400010228157,
+    0.08780799806118011,
+    0.08934400230646133,
+    0.08383999764919281,
+    0.09020800143480301,
+    0.08425600081682205,
+    0.08393599838018417,
+    0.08585599809885025,
+    0.08476799726486206,
+    0.0838719978928566,
+    0.08902399986982346,
+    0.08463999629020691
+  ],
+  "analytical_not_measured": {
+    "resident_weight_bytes": 12582912,
+    "active_unique_weight_bytes": 12582912,
+    "dispatch_payload_bytes": 65536,
+    "combine_input_payload_bytes": 65536,
+    "expert_gemm_flops": 201326592
+  }
+}

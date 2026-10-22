@@ -1,0 +1,10579 @@
+{
+  "kernel_count": 585,
+  "repetitions": 3,
+  "gpu_span_ms": 20.889262,
+  "gpu_kernel_sum_ms_per_invocation": 3.4999936666666667,
+  "gpu_active_fraction_of_trace_span": 0.5026496867146384,
+  "stages": {
+    "Dispatch": {
+      "launches": 3,
+      "total_ms_per_invocation": 0.06391433333333334,
+      "median_kernel_us": 62.047
+    },
+    "Gate": {
+      "launches": 192,
+      "total_ms_per_invocation": 1.179589,
+      "median_kernel_us": 18.288
+    },
+    "Up": {
+      "launches": 192,
+      "total_ms_per_invocation": 1.160496,
+      "median_kernel_us": 17.952
+    },
+    "SwiGLU": {
+      "launches": 3,
+      "total_ms_per_invocation": 0.04260266666666667,
+      "median_kernel_us": 42.624
+    },
+    "Down": {
+      "launches": 192,
+      "total_ms_per_invocation": 1.0211146666666666,
+      "median_kernel_us": 14.816
+    },
+    "Combine": {
+      "launches": 3,
+      "total_ms_per_invocation": 0.032277,
+      "median_kernel_us": 32.256
+    }
+  },
+  "kernels": [
+    {
+      "kernel": "dispatch",
+      "stage": "Dispatch",
+      "start_ns": 0,
+      "duration_ns": 67776,
+      "grid": [
+        16384,
+        8,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 16,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 206239,
+      "duration_ns": 21568,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 341438,
+      "duration_ns": 16896,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 456766,
+      "duration_ns": 19936,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 572061,
+      "duration_ns": 16640,
+      "grid": [
+        14,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 676637,
+      "duration_ns": 18944,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 782396,
+      "duration_ns": 16736,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 885051,
+      "duration_ns": 20928,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 990171,
+      "duration_ns": 16672,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 1102586,
+      "duration_ns": 16512,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 1207226,
+      "duration_ns": 18368,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 1309465,
+      "duration_ns": 18656,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 1411257,
+      "duration_ns": 19103,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 1515992,
+      "duration_ns": 19360,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 1616535,
+      "duration_ns": 20672,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 1720407,
+      "duration_ns": 20192,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 1821686,
+      "duration_ns": 19168,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 1923382,
+      "duration_ns": 19616,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 2025045,
+      "duration_ns": 19328,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 2132277,
+      "duration_ns": 18720,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 2235028,
+      "duration_ns": 19392,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 2336756,
+      "duration_ns": 18943,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 2435891,
+      "duration_ns": 20992,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 2537778,
+      "duration_ns": 17856,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 2637362,
+      "duration_ns": 17568,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 2739473,
+      "duration_ns": 18240,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 2837937,
+      "duration_ns": 18400,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 2941424,
+      "duration_ns": 17344,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3041904,
+      "duration_ns": 17792,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3149263,
+      "duration_ns": 19520,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3249295,
+      "duration_ns": 19359,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3349550,
+      "duration_ns": 18144,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3406766,
+      "duration_ns": 18688,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3453677,
+      "duration_ns": 18944,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3484973,
+      "duration_ns": 19136,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3517741,
+      "duration_ns": 18240,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3550253,
+      "duration_ns": 17888,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3582669,
+      "duration_ns": 18688,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3614093,
+      "duration_ns": 17311,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3645996,
+      "duration_ns": 19680,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3678124,
+      "duration_ns": 16480,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3710508,
+      "duration_ns": 17856,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3742572,
+      "duration_ns": 18144,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3774380,
+      "duration_ns": 18624,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3807019,
+      "duration_ns": 17760,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3839019,
+      "duration_ns": 16992,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3870411,
+      "duration_ns": 20800,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3902763,
+      "duration_ns": 18048,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3934507,
+      "duration_ns": 18400,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 3972523,
+      "duration_ns": 18719,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 4004778,
+      "duration_ns": 17376,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 4036426,
+      "duration_ns": 16704,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 4068234,
+      "duration_ns": 20032,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 4104362,
+      "duration_ns": 17824,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 4136106,
+      "duration_ns": 16512,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 4168041,
+      "duration_ns": 18400,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 4200617,
+      "duration_ns": 22336,
+      "grid": [
+        19,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 4232393,
+      "duration_ns": 19424,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 4263529,
+      "duration_ns": 17632,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 4294985,
+      "duration_ns": 17120,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 4327049,
+      "duration_ns": 17056,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 4360616,
+      "duration_ns": 16512,
+      "grid": [
+        14,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 4392488,
+      "duration_ns": 17408,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 4425000,
+      "duration_ns": 18048,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 4457256,
+      "duration_ns": 17472,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4501160,
+      "duration_ns": 17024,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4535655,
+      "duration_ns": 18048,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4568807,
+      "duration_ns": 19936,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4601319,
+      "duration_ns": 16480,
+      "grid": [
+        14,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4634375,
+      "duration_ns": 19104,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4665735,
+      "duration_ns": 17504,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4697639,
+      "duration_ns": 20223,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4729766,
+      "duration_ns": 17344,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4761862,
+      "duration_ns": 16992,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4793542,
+      "duration_ns": 18240,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4825606,
+      "duration_ns": 17632,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4857350,
+      "duration_ns": 17216,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4889766,
+      "duration_ns": 17663,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4921765,
+      "duration_ns": 17216,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4953189,
+      "duration_ns": 19456,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 4985925,
+      "duration_ns": 18016,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5018821,
+      "duration_ns": 17824,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5051013,
+      "duration_ns": 18816,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5086020,
+      "duration_ns": 16800,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5118212,
+      "duration_ns": 18496,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5150404,
+      "duration_ns": 17792,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5182596,
+      "duration_ns": 20480,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5214980,
+      "duration_ns": 17952,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5246628,
+      "duration_ns": 17407,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5279683,
+      "duration_ns": 17440,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5311459,
+      "duration_ns": 18272,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5347235,
+      "duration_ns": 17664,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5378947,
+      "duration_ns": 17120,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5410819,
+      "duration_ns": 18464,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5441955,
+      "duration_ns": 18975,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5473954,
+      "duration_ns": 17600,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5506146,
+      "duration_ns": 19520,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5538434,
+      "duration_ns": 18208,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5569922,
+      "duration_ns": 18816,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5602018,
+      "duration_ns": 17024,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5634113,
+      "duration_ns": 17952,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5666305,
+      "duration_ns": 19936,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5697793,
+      "duration_ns": 16800,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5729377,
+      "duration_ns": 18720,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5760769,
+      "duration_ns": 17440,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5792449,
+      "duration_ns": 17600,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5824160,
+      "duration_ns": 17856,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5856576,
+      "duration_ns": 19008,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5888896,
+      "duration_ns": 18176,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5921088,
+      "duration_ns": 17696,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5952608,
+      "duration_ns": 20320,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 5983840,
+      "duration_ns": 18687,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6015647,
+      "duration_ns": 18432,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6050239,
+      "duration_ns": 18528,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6085215,
+      "duration_ns": 17920,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6118879,
+      "duration_ns": 18048,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6150879,
+      "duration_ns": 20672,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6183134,
+      "duration_ns": 16800,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6214334,
+      "duration_ns": 17696,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6245374,
+      "duration_ns": 18272,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6279870,
+      "duration_ns": 20992,
+      "grid": [
+        19,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6311678,
+      "duration_ns": 19456,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6343134,
+      "duration_ns": 17759,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6376093,
+      "duration_ns": 17984,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6407133,
+      "duration_ns": 17248,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6439581,
+      "duration_ns": 16992,
+      "grid": [
+        14,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6470845,
+      "duration_ns": 16352,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6502525,
+      "duration_ns": 17728,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 6534461,
+      "duration_ns": 17823,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "swiglu",
+      "stage": "SwiGLU",
+      "start_ns": 6571004,
+      "duration_ns": 42624,
+      "grid": [
+        1164,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 16,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 6614908,
+      "duration_ns": 15072,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 6648092,
+      "duration_ns": 14560,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 6681212,
+      "duration_ns": 18528,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 6713724,
+      "duration_ns": 15551,
+      "grid": [
+        14,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 6745275,
+      "duration_ns": 17184,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 6778011,
+      "duration_ns": 14464,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 6810907,
+      "duration_ns": 18528,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 6843611,
+      "duration_ns": 14560,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 6875195,
+      "duration_ns": 14752,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 6906395,
+      "duration_ns": 17439,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 6937946,
+      "duration_ns": 14400,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 6970490,
+      "duration_ns": 14784,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7002042,
+      "duration_ns": 14784,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7034170,
+      "duration_ns": 14528,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7066234,
+      "duration_ns": 17312,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7100953,
+      "duration_ns": 14784,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7132729,
+      "duration_ns": 14656,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7163577,
+      "duration_ns": 17440,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7195385,
+      "duration_ns": 14528,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7226745,
+      "duration_ns": 17216,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7257529,
+      "duration_ns": 14592,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7289208,
+      "duration_ns": 18720,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7320792,
+      "duration_ns": 14528,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7352984,
+      "duration_ns": 14272,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7385240,
+      "duration_ns": 14592,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7416952,
+      "duration_ns": 17376,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7449240,
+      "duration_ns": 14431,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7481175,
+      "duration_ns": 14688,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7512823,
+      "duration_ns": 17408,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7544823,
+      "duration_ns": 17248,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7576279,
+      "duration_ns": 14592,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7607575,
+      "duration_ns": 18976,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7639094,
+      "duration_ns": 17888,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7670102,
+      "duration_ns": 17408,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7701526,
+      "duration_ns": 14592,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7732790,
+      "duration_ns": 14464,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7763862,
+      "duration_ns": 17440,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7794806,
+      "duration_ns": 14688,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7826293,
+      "duration_ns": 19040,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7857717,
+      "duration_ns": 14816,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7889077,
+      "duration_ns": 14848,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7920533,
+      "duration_ns": 14656,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7951797,
+      "duration_ns": 17376,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 7982837,
+      "duration_ns": 17088,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8014004,
+      "duration_ns": 14528,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8045076,
+      "duration_ns": 18432,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8079636,
+      "duration_ns": 17280,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8115444,
+      "duration_ns": 17120,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8146196,
+      "duration_ns": 17472,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8176948,
+      "duration_ns": 14623,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8208147,
+      "duration_ns": 14592,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8238963,
+      "duration_ns": 18560,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8270355,
+      "duration_ns": 14752,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8301587,
+      "duration_ns": 14752,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8333011,
+      "duration_ns": 17440,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8364499,
+      "duration_ns": 20863,
+      "grid": [
+        19,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8395218,
+      "duration_ns": 17888,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8426002,
+      "duration_ns": 14624,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8457810,
+      "duration_ns": 14336,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8488402,
+      "duration_ns": 14400,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8520018,
+      "duration_ns": 15104,
+      "grid": [
+        14,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8550162,
+      "duration_ns": 14527,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8581745,
+      "duration_ns": 14624,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 8612849,
+      "duration_ns": 14816,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "combine",
+      "stage": "Combine",
+      "start_ns": 8645169,
+      "duration_ns": 32320,
+      "grid": [
+        2048,
+        8,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 34,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "dispatch",
+      "stage": "Dispatch",
+      "start_ns": 8678833,
+      "duration_ns": 62047,
+      "grid": [
+        16384,
+        8,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 16,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 8742768,
+      "duration_ns": 21216,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 8765296,
+      "duration_ns": 16928,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 8784080,
+      "duration_ns": 19648,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 8816816,
+      "duration_ns": 16224,
+      "grid": [
+        14,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 8847568,
+      "duration_ns": 19232,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 8878800,
+      "duration_ns": 16928,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 8910416,
+      "duration_ns": 20767,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 8942031,
+      "duration_ns": 16288,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 8972815,
+      "duration_ns": 16832,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9005167,
+      "duration_ns": 18176,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9035407,
+      "duration_ns": 18464,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9066511,
+      "duration_ns": 18848,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9101646,
+      "duration_ns": 19680,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9132302,
+      "duration_ns": 20608,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9162062,
+      "duration_ns": 19968,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9192686,
+      "duration_ns": 18688,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9224462,
+      "duration_ns": 19520,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9255278,
+      "duration_ns": 19072,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9286957,
+      "duration_ns": 18976,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9318893,
+      "duration_ns": 19744,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9349869,
+      "duration_ns": 18944,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9380973,
+      "duration_ns": 20640,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9411021,
+      "duration_ns": 17664,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9441325,
+      "duration_ns": 17408,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9471916,
+      "duration_ns": 18272,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9503116,
+      "duration_ns": 18176,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9533836,
+      "duration_ns": 17088,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9564076,
+      "duration_ns": 17632,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9595276,
+      "duration_ns": 19232,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9626796,
+      "duration_ns": 19040,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9656939,
+      "duration_ns": 17664,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9687947,
+      "duration_ns": 18656,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9719563,
+      "duration_ns": 18880,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9750347,
+      "duration_ns": 18624,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9780587,
+      "duration_ns": 18368,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9810891,
+      "duration_ns": 17856,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9842122,
+      "duration_ns": 18464,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9872938,
+      "duration_ns": 17408,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9903466,
+      "duration_ns": 19552,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9934058,
+      "duration_ns": 16768,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9964362,
+      "duration_ns": 17728,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 9995786,
+      "duration_ns": 17567,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10026281,
+      "duration_ns": 18752,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10057001,
+      "duration_ns": 18016,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10090409,
+      "duration_ns": 16896,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10123401,
+      "duration_ns": 20736,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10153705,
+      "duration_ns": 18240,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10184297,
+      "duration_ns": 18047,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10216808,
+      "duration_ns": 18560,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10247720,
+      "duration_ns": 17408,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10278280,
+      "duration_ns": 17088,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10308584,
+      "duration_ns": 20160,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10339144,
+      "duration_ns": 18016,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10370248,
+      "duration_ns": 16479,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10401191,
+      "duration_ns": 18464,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10432103,
+      "duration_ns": 22240,
+      "grid": [
+        19,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10462375,
+      "duration_ns": 19488,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10492775,
+      "duration_ns": 17696,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10523143,
+      "duration_ns": 17024,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10554215,
+      "duration_ns": 16863,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10584614,
+      "duration_ns": 17472,
+      "grid": [
+        14,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10615590,
+      "duration_ns": 17280,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10646150,
+      "duration_ns": 18048,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 10676870,
+      "duration_ns": 17248,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 10714470,
+      "duration_ns": 16736,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 10746597,
+      "duration_ns": 18272,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 10777413,
+      "duration_ns": 19616,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 10807685,
+      "duration_ns": 16384,
+      "grid": [
+        14,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 10838469,
+      "duration_ns": 18816,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 10869861,
+      "duration_ns": 17856,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 10901061,
+      "duration_ns": 20448,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 10932132,
+      "duration_ns": 16992,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 10963268,
+      "duration_ns": 17120,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 10993604,
+      "duration_ns": 18144,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11023972,
+      "duration_ns": 17440,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11054532,
+      "duration_ns": 17056,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11087460,
+      "duration_ns": 17632,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11118019,
+      "duration_ns": 17152,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11148131,
+      "duration_ns": 19488,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11178883,
+      "duration_ns": 18048,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11209507,
+      "duration_ns": 17952,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11240355,
+      "duration_ns": 18880,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11270467,
+      "duration_ns": 16864,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11301378,
+      "duration_ns": 18400,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11331906,
+      "duration_ns": 18176,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11362274,
+      "duration_ns": 20288,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11392450,
+      "duration_ns": 17664,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11423042,
+      "duration_ns": 17440,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11453730,
+      "duration_ns": 17632,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11484129,
+      "duration_ns": 18432,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11514081,
+      "duration_ns": 17248,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11544577,
+      "duration_ns": 17440,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11575745,
+      "duration_ns": 18528,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11606113,
+      "duration_ns": 18880,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11635905,
+      "duration_ns": 17952,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11666368,
+      "duration_ns": 19296,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11696672,
+      "duration_ns": 18464,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11727520,
+      "duration_ns": 18816,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11757504,
+      "duration_ns": 16800,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11788384,
+      "duration_ns": 18048,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11818240,
+      "duration_ns": 19552,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11849247,
+      "duration_ns": 16960,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11879743,
+      "duration_ns": 18624,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11909823,
+      "duration_ns": 16992,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11940863,
+      "duration_ns": 17824,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 11972095,
+      "duration_ns": 17920,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12003135,
+      "duration_ns": 19008,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12033982,
+      "duration_ns": 18208,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12064350,
+      "duration_ns": 17696,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12100350,
+      "duration_ns": 20000,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12131166,
+      "duration_ns": 18912,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12161086,
+      "duration_ns": 18560,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12191838,
+      "duration_ns": 18079,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12222685,
+      "duration_ns": 18016,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12253565,
+      "duration_ns": 18016,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12284157,
+      "duration_ns": 20576,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12314845,
+      "duration_ns": 16544,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12345373,
+      "duration_ns": 17536,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12378589,
+      "duration_ns": 18431,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12415676,
+      "duration_ns": 21248,
+      "grid": [
+        19,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12452700,
+      "duration_ns": 19936,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12487612,
+      "duration_ns": 17824,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12518108,
+      "duration_ns": 17280,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12548124,
+      "duration_ns": 17056,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12578747,
+      "duration_ns": 17120,
+      "grid": [
+        14,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12609403,
+      "duration_ns": 16608,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12639675,
+      "duration_ns": 17920,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 12670011,
+      "duration_ns": 17888,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "swiglu",
+      "stage": "SwiGLU",
+      "start_ns": 12701147,
+      "duration_ns": 42624,
+      "grid": [
+        1164,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 16,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 12744539,
+      "duration_ns": 15167,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 12773402,
+      "duration_ns": 14624,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 12805306,
+      "duration_ns": 18560,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 12836602,
+      "duration_ns": 15584,
+      "grid": [
+        14,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 12868826,
+      "duration_ns": 16960,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 12898586,
+      "duration_ns": 14624,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 12931674,
+      "duration_ns": 18495,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 12962777,
+      "duration_ns": 14752,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 12994073,
+      "duration_ns": 14528,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13025145,
+      "duration_ns": 17440,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13057081,
+      "duration_ns": 14464,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13091865,
+      "duration_ns": 14784,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13123384,
+      "duration_ns": 14752,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13154136,
+      "duration_ns": 14528,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13183928,
+      "duration_ns": 17568,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13216632,
+      "duration_ns": 14528,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13248152,
+      "duration_ns": 14400,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13279768,
+      "duration_ns": 17408,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13310167,
+      "duration_ns": 14688,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13340695,
+      "duration_ns": 17184,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13371895,
+      "duration_ns": 14464,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13403031,
+      "duration_ns": 18624,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13435127,
+      "duration_ns": 14400,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13466327,
+      "duration_ns": 14624,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13497302,
+      "duration_ns": 14528,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13527926,
+      "duration_ns": 17344,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13558454,
+      "duration_ns": 14656,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13589910,
+      "duration_ns": 14528,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13619606,
+      "duration_ns": 17312,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13651478,
+      "duration_ns": 17343,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13683349,
+      "duration_ns": 14368,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13713493,
+      "duration_ns": 18912,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13746261,
+      "duration_ns": 17696,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13776789,
+      "duration_ns": 17216,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13808085,
+      "duration_ns": 14720,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13839125,
+      "duration_ns": 14303,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13870068,
+      "duration_ns": 17248,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13901204,
+      "duration_ns": 14272,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13931860,
+      "duration_ns": 19040,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13962516,
+      "duration_ns": 14848,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 13993044,
+      "duration_ns": 14592,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14023508,
+      "duration_ns": 14687,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14054163,
+      "duration_ns": 17696,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14087443,
+      "duration_ns": 17344,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14120787,
+      "duration_ns": 14304,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14152403,
+      "duration_ns": 18464,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14184243,
+      "duration_ns": 17280,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14215730,
+      "duration_ns": 17216,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14246770,
+      "duration_ns": 17184,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14278418,
+      "duration_ns": 14784,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14309234,
+      "duration_ns": 14656,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14340818,
+      "duration_ns": 18624,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14372754,
+      "duration_ns": 14848,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14403729,
+      "duration_ns": 14528,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14435121,
+      "duration_ns": 17216,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14466545,
+      "duration_ns": 20864,
+      "grid": [
+        19,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14498321,
+      "duration_ns": 17664,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14529457,
+      "duration_ns": 14592,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14560849,
+      "duration_ns": 14560,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14591504,
+      "duration_ns": 14496,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14622992,
+      "duration_ns": 15424,
+      "grid": [
+        14,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14653136,
+      "duration_ns": 14432,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14684144,
+      "duration_ns": 14560,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 14715536,
+      "duration_ns": 14816,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "combine",
+      "stage": "Combine",
+      "start_ns": 14746704,
+      "duration_ns": 32255,
+      "grid": [
+        2048,
+        8,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 34,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "dispatch",
+      "stage": "Dispatch",
+      "start_ns": 14780239,
+      "duration_ns": 61920,
+      "grid": [
+        16384,
+        8,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 16,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 14842735,
+      "duration_ns": 20992,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 14866255,
+      "duration_ns": 17248,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 14884687,
+      "duration_ns": 19776,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 14915407,
+      "duration_ns": 16736,
+      "grid": [
+        14,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 14947502,
+      "duration_ns": 19168,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 14979118,
+      "duration_ns": 16672,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15011214,
+      "duration_ns": 20928,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15041966,
+      "duration_ns": 16672,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15075182,
+      "duration_ns": 16768,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15107246,
+      "duration_ns": 18144,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15138349,
+      "duration_ns": 18816,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15168909,
+      "duration_ns": 18976,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15205901,
+      "duration_ns": 19776,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15237133,
+      "duration_ns": 19968,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15268109,
+      "duration_ns": 20128,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15299245,
+      "duration_ns": 19263,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15330444,
+      "duration_ns": 19232,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15362380,
+      "duration_ns": 19232,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15393804,
+      "duration_ns": 18848,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15425132,
+      "duration_ns": 19328,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15455980,
+      "duration_ns": 19136,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15486860,
+      "duration_ns": 20479,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15517899,
+      "duration_ns": 18144,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15548683,
+      "duration_ns": 17440,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15580171,
+      "duration_ns": 17952,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15611787,
+      "duration_ns": 18496,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15642891,
+      "duration_ns": 17440,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15673003,
+      "duration_ns": 17567,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15704202,
+      "duration_ns": 19232,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15735242,
+      "duration_ns": 19360,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15766122,
+      "duration_ns": 17728,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15796778,
+      "duration_ns": 19136,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15828906,
+      "duration_ns": 18976,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15859593,
+      "duration_ns": 18528,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15891593,
+      "duration_ns": 18336,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15922537,
+      "duration_ns": 17760,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15954313,
+      "duration_ns": 18848,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 15985129,
+      "duration_ns": 17024,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16016009,
+      "duration_ns": 19488,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16046472,
+      "duration_ns": 16512,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16079880,
+      "duration_ns": 17824,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16110728,
+      "duration_ns": 18080,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16144232,
+      "duration_ns": 18240,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16175176,
+      "duration_ns": 18304,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16207816,
+      "duration_ns": 17311,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16239335,
+      "duration_ns": 20480,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16270471,
+      "duration_ns": 18080,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16300807,
+      "duration_ns": 18240,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16331783,
+      "duration_ns": 18688,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16363015,
+      "duration_ns": 16960,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16394087,
+      "duration_ns": 17087,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16425478,
+      "duration_ns": 20064,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16455910,
+      "duration_ns": 17376,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16487654,
+      "duration_ns": 16704,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16519046,
+      "duration_ns": 18688,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16549574,
+      "duration_ns": 22240,
+      "grid": [
+        19,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16581318,
+      "duration_ns": 19487,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16612837,
+      "duration_ns": 18048,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16644005,
+      "duration_ns": 16608,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16674885,
+      "duration_ns": 16768,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16706309,
+      "duration_ns": 16736,
+      "grid": [
+        14,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16737125,
+      "duration_ns": 17376,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16768677,
+      "duration_ns": 17919,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Gate",
+      "start_ns": 16798980,
+      "duration_ns": 17728,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 16837284,
+      "duration_ns": 17120,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 16870276,
+      "duration_ns": 18368,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 16901860,
+      "duration_ns": 19712,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 16933188,
+      "duration_ns": 16544,
+      "grid": [
+        14,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 16965315,
+      "duration_ns": 18528,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 16996707,
+      "duration_ns": 17440,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17027907,
+      "duration_ns": 20096,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17058435,
+      "duration_ns": 17248,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17091555,
+      "duration_ns": 16960,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17122531,
+      "duration_ns": 18335,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17153474,
+      "duration_ns": 17536,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17183618,
+      "duration_ns": 17152,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17214914,
+      "duration_ns": 17632,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17246018,
+      "duration_ns": 17408,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17277602,
+      "duration_ns": 19328,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17308290,
+      "duration_ns": 17727,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17339553,
+      "duration_ns": 18208,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17370497,
+      "duration_ns": 18528,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17402145,
+      "duration_ns": 16896,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17433537,
+      "duration_ns": 18304,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17464321,
+      "duration_ns": 17984,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17495489,
+      "duration_ns": 20191,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17526848,
+      "duration_ns": 17664,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17557696,
+      "duration_ns": 17888,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17588096,
+      "duration_ns": 17024,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17619584,
+      "duration_ns": 18112,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17650656,
+      "duration_ns": 17408,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17680864,
+      "duration_ns": 17279,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17711487,
+      "duration_ns": 18496,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17746911,
+      "duration_ns": 19200,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17778495,
+      "duration_ns": 17824,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17809471,
+      "duration_ns": 19648,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17840287,
+      "duration_ns": 18432,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17870718,
+      "duration_ns": 18784,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17901374,
+      "duration_ns": 16480,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17932798,
+      "duration_ns": 18176,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17963230,
+      "duration_ns": 19456,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 17993566,
+      "duration_ns": 16864,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18024446,
+      "duration_ns": 18688,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18054973,
+      "duration_ns": 17376,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18088765,
+      "duration_ns": 17600,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18120157,
+      "duration_ns": 18176,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18152541,
+      "duration_ns": 19168,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18183421,
+      "duration_ns": 18080,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18215101,
+      "duration_ns": 17600,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18246972,
+      "duration_ns": 20512,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18277948,
+      "duration_ns": 18560,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18308188,
+      "duration_ns": 18560,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18339932,
+      "duration_ns": 17888,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18371324,
+      "duration_ns": 17664,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18401916,
+      "duration_ns": 17407,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18433403,
+      "duration_ns": 20608,
+      "grid": [
+        18,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18464475,
+      "duration_ns": 16704,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18495547,
+      "duration_ns": 17728,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18526971,
+      "duration_ns": 18400,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18558011,
+      "duration_ns": 21120,
+      "grid": [
+        19,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18588827,
+      "duration_ns": 19519,
+      "grid": [
+        16,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18620314,
+      "duration_ns": 18016,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18651258,
+      "duration_ns": 17472,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18681818,
+      "duration_ns": 17408,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18713306,
+      "duration_ns": 16736,
+      "grid": [
+        14,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18744282,
+      "duration_ns": 16032,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18774298,
+      "duration_ns": 18047,
+      "grid": [
+        17,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Up",
+      "start_ns": 18805529,
+      "duration_ns": 18048,
+      "grid": [
+        15,
+        32,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "swiglu",
+      "stage": "SwiGLU",
+      "start_ns": 18835897,
+      "duration_ns": 42560,
+      "grid": [
+        1164,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 16,
+      "shared_memory_bytes": 0
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 18880313,
+      "duration_ns": 14688,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 18907321,
+      "duration_ns": 14560,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 18938585,
+      "duration_ns": 18688,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 18970552,
+      "duration_ns": 15424,
+      "grid": [
+        14,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19002328,
+      "duration_ns": 17472,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19033240,
+      "duration_ns": 14784,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19064952,
+      "duration_ns": 18624,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19098520,
+      "duration_ns": 14784,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19129688,
+      "duration_ns": 14752,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19160247,
+      "duration_ns": 17280,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19191127,
+      "duration_ns": 14592,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19221943,
+      "duration_ns": 14720,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19253015,
+      "duration_ns": 14688,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19284151,
+      "duration_ns": 14496,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19314999,
+      "duration_ns": 17503,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19345334,
+      "duration_ns": 14720,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19376310,
+      "duration_ns": 14432,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19408470,
+      "duration_ns": 17472,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19438710,
+      "duration_ns": 15040,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19469398,
+      "duration_ns": 17120,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19500182,
+      "duration_ns": 14655,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19530997,
+      "duration_ns": 18752,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19561813,
+      "duration_ns": 14752,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19591637,
+      "duration_ns": 14528,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19622869,
+      "duration_ns": 14400,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19654325,
+      "duration_ns": 17152,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19685301,
+      "duration_ns": 14879,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19715764,
+      "duration_ns": 14368,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19746932,
+      "duration_ns": 17280,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19778292,
+      "duration_ns": 17312,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19808884,
+      "duration_ns": 14656,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19839348,
+      "duration_ns": 18720,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19869748,
+      "duration_ns": 17919,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19900627,
+      "duration_ns": 17408,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19931091,
+      "duration_ns": 14464,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19961715,
+      "duration_ns": 14496,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 19993011,
+      "duration_ns": 17248,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20023859,
+      "duration_ns": 14592,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20053907,
+      "duration_ns": 19135,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20087666,
+      "duration_ns": 14816,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20118290,
+      "duration_ns": 15040,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20150066,
+      "duration_ns": 14560,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20181522,
+      "duration_ns": 17280,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20211762,
+      "duration_ns": 17312,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20242481,
+      "duration_ns": 14432,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20273393,
+      "duration_ns": 18368,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20304177,
+      "duration_ns": 17472,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20334961,
+      "duration_ns": 17280,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20366193,
+      "duration_ns": 17536,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20396177,
+      "duration_ns": 14400,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20427472,
+      "duration_ns": 14656,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20458576,
+      "duration_ns": 18624,
+      "grid": [
+        18,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20489648,
+      "duration_ns": 14624,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20520816,
+      "duration_ns": 14464,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20551152,
+      "duration_ns": 17376,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20581072,
+      "duration_ns": 20704,
+      "grid": [
+        19,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20612431,
+      "duration_ns": 17600,
+      "grid": [
+        16,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20642415,
+      "duration_ns": 14272,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20672463,
+      "duration_ns": 14592,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20703311,
+      "duration_ns": 14336,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20734607,
+      "duration_ns": 15296,
+      "grid": [
+        14,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20765071,
+      "duration_ns": 14368,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20796494,
+      "duration_ns": 14688,
+      "grid": [
+        17,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "expert_mm",
+      "stage": "Down",
+      "start_ns": 20826894,
+      "duration_ns": 14848,
+      "grid": [
+        15,
+        64,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 40,
+      "shared_memory_bytes": 6144
+    },
+    {
+      "kernel": "combine",
+      "stage": "Combine",
+      "start_ns": 20857006,
+      "duration_ns": 32256,
+      "grid": [
+        2048,
+        8,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "registers_per_thread": 34,
+      "shared_memory_bytes": 0
+    }
+  ],
+  "memcpy_events": [],
+  "scope": "CUDA activity timestamps, not SM utilization, DRAM counters, or NoC packets",
+  "case": {
+    "tokens": 2048,
+    "mode": "block",
+    "pattern": "random",
+    "serial": true
+  }
+}

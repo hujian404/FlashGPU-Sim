@@ -1,0 +1,8 @@
+{
+  "cpu_routing_and_publication_tests": 6,
+  "bf16_capture_regression": "passed",
+  "gpu_workload_validation": "FP32 reference with BF16 intermediate rounding",
+  "compact_simulation_launches": 6,
+  "trained_checkpoint_api_contract": "passed using tiny synthetic local fixture; not a trained checkpoint result",
+  "architecture_validation": "finite prefill/decode logits; no language quality claim"
+}

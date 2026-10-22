@@ -1,0 +1,80 @@
+[
+  {
+    "tokens": 128,
+    "prefill_ms": [
+      129.04059700667858,
+      129.15376794990152
+    ],
+    "prefill_tokens_per_second": 991.5011121294258,
+    "decode_tokens_per_second": 9.778046605910893,
+    "kernel_count": 69157,
+    "phase_gpu_ms": {
+      "Prefill": {
+        "Other": 0.7334679999999993,
+        "Attention": 1.966610999999998,
+        "Router": 0.051328000000000006,
+        "MoE": 21.75945000000037
+      },
+      "Decode": {
+        "Other": 3.739241999999963,
+        "Attention": 9.339800999999952,
+        "Router": 0.3034870000000001,
+        "MoE": 64.05675999998721
+      }
+    },
+    "unassigned_kernel_count": 0,
+    "weights": "synthetic random BF16; not a trained checkpoint"
+  },
+  {
+    "tokens": 512,
+    "prefill_ms": [
+      131.13645801786333,
+      133.92757799010724
+    ],
+    "prefill_tokens_per_second": 3863.2174150144156,
+    "decode_tokens_per_second": 9.769602624079061,
+    "kernel_count": 69902,
+    "phase_gpu_ms": {
+      "Prefill": {
+        "Other": 1.2474500000000004,
+        "Attention": 4.279818000000004,
+        "Router": 0.08313600000000002,
+        "MoE": 29.303606999999477
+      },
+      "Decode": {
+        "Other": 3.7821559999999668,
+        "Attention": 10.333638999999977,
+        "Router": 0.30969500000000033,
+        "MoE": 63.80731799998545
+      }
+    },
+    "unassigned_kernel_count": 0,
+    "weights": "synthetic random BF16; not a trained checkpoint"
+  },
+  {
+    "tokens": 2048,
+    "prefill_ms": [
+      180.7904370361939,
+      180.99536001682281
+    ],
+    "prefill_tokens_per_second": 11321.616363507395,
+    "decode_tokens_per_second": 9.726196051874801,
+    "kernel_count": 71137,
+    "phase_gpu_ms": {
+      "Prefill": {
+        "Other": 3.4849440000000014,
+        "Attention": 38.64370699999994,
+        "Router": 0.188864,
+        "MoE": 48.978036999999574
+      },
+      "Decode": {
+        "Other": 3.8512509999999933,
+        "Attention": 12.877004999999885,
+        "Router": 0.3088630000000002,
+        "MoE": 64.05966299998508
+      }
+    },
+    "unassigned_kernel_count": 0,
+    "weights": "synthetic random BF16; not a trained checkpoint"
+  }
+]

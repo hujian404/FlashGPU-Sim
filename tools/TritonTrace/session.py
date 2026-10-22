@@ -179,13 +179,17 @@ class TrackingSession:
             return None, {}
 
         cpu_tensor = tensor.detach().cpu()
-        np_array = cpu_tensor.numpy()
+        # NumPy has no native BF16 dtype. Preserve the raw 16-bit payload,
+        # while retaining the logical dtype for harness validation.
+        is_bf16 = cpu_tensor.dtype == torch.bfloat16
+        np_array = (cpu_tensor.contiguous().view(torch.uint16)
+                    if is_bf16 else cpu_tensor).numpy()
         tensor_path = self.data_dir / f"{kernel_name}_launch{launch_id}_arg{arg_idx}.bin"
         np_array.tofile(str(tensor_path))
 
         metadata = {
             "shape": list(np_array.shape),
-            "dtype": str(np_array.dtype),
+            "dtype": "bfloat16" if is_bf16 else str(np_array.dtype),
             "size_bytes": np_array.nbytes,
             "device": str(tensor.device),
             "requires_grad": tensor.requires_grad,
@@ -327,7 +331,9 @@ class TrackingSession:
                     f"{launch_info.kernel_name}_launch{launch_info.launch_id}_"
                     f"arg{idx}_output.bin"
                 )
-                np_array = arg.detach().cpu().numpy()
+                cpu_tensor = arg.detach().cpu()
+                np_array = (cpu_tensor.contiguous().view(torch.uint16)
+                            if cpu_tensor.dtype == torch.bfloat16 else cpu_tensor).numpy()
                 np_array.tofile(str(output_path))
                 arg_info.output_file = str(output_path)
                 print(

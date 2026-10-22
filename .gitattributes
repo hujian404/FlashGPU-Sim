@@ -1,0 +1,8 @@
+setup_environment text eol=lf
+tests/moe/*.py text eol=lf
+tests/moe/*.cu text eol=lf
+docs/experiments/results/** -text
+docs/experiments/results/**/*.log -diff
+docs/experiments/results/**/*.txt -diff
+docs/experiments/figures/moe/** -text
+docs/experiments/figures/moe/*.svg -diff

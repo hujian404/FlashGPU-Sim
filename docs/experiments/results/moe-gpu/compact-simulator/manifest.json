@@ -1,0 +1,31 @@
+{
+  "base_commit": "f44abbe461eff6467ccdc40bcf62b8e692d3f2e4",
+  "source_sha256": {
+    "setup_environment": "fe95555d6b58c4aece9217cf84e713ad2b76d6c102d6c52179af216aad5ed3a1",
+    "tools/TritonTrace/session.py": "9b2258f7b6fb1ae884913096e87a02f2176ee69a714193edac60f507fc428ca6",
+    "tests/moe/architecture_inference.py": "02f99749c0423aef7a9b17e606ee90e6f10c35880377b251d9b004d817ba9fb7",
+    "tests/moe/architecture_results.py": "6c4bd1bd1bc5862054400b2462c7e2fc0fa8ec6b2b84f22de0e231b127ce332d",
+    "tests/moe/benchmark.py": "feb04afed09a8abbf81b452e6cb3c8fe22b1114a03eb0f78514026a7b3ace05d",
+    "tests/moe/collect_results.py": "db8444686b4d43d1b6797ba9def8143a48227cae7e281302ce5321ed9ecdf542",
+    "tests/moe/kernels.py": "4896b10bd1f9119f043affdd0b290de9c7bfca0b1b5b3f16b96709c49f3e7c43",
+    "tests/moe/model.py": "26fd9baaf94e7463f5073ef3c1cfcb8bdf11fd0f13f53cdf577498be7f0ce970",
+    "tests/moe/nsight_profile.py": "fdb38c8bcc0cefef213c9517938b4c3c8cb60064ff28e2f63c05c0897459b454",
+    "tests/moe/public_data.py": "af32cd8d3ff67394d575b3f0eefd1633f1735df176ce8a4f71393ce4a6a6b4bd",
+    "tests/moe/replay.py": "398f067a4a787c565a016dfaf01974661964f8142397f57970c27342ad086f97",
+    "tests/moe/routing.py": "5c63600f35852765012d16dee36b81008cd61994c2c53b1c82185993693356c1",
+    "tests/moe/scheduling_control.py": "97f3134793612ca2230aab16eddb73202c7dec7d1912dda6d9849f347bc52b76",
+    "tests/moe/suite.py": "3c44f92654c36c24ff446d5ef0361a728ee2bdc6636aee61420305ddeb39ed6c",
+    "tests/moe/test_public_data.py": "24e40a14b52b3271bcde908cd0ce9c315a825da25f7381f7fe40b003d469e5b9",
+    "tests/moe/test_routing.py": "4441723dc2e0bd67261b16b58288cc0781d55a7b42d1c4a5a0dd6109ecb10c3b",
+    "tests/moe/bf16_convert.cu": "3d0ad10fa3539cb960a9d60db823f4e8ab00d2625a375cae6e04b15ab56d0c2a",
+    "src/cuda-sim/instructions.cc": "133da541821dbc710d04e473fc697f501deeb307863196eade2da35a13427f7f",
+    "src/cuda-sim/ptx.l": "ede23aebffd9fd61df8e234eb0aab3304f2955df3d72ca0de1fbacc135a31123",
+    "src/cuda-sim/ptx.y": "1116b9cf680991107f8f2377a4e65fe11b1822b51a703aa69a089ee8ad8b288e",
+    "src/cuda-sim/ptx_ir.cc": "6d1fcc58f2de424a0650dd2e0fbbb6ea47ca124e2ce71b3fd3768c77edec6620",
+    "src/cuda-sim/ptx_parser.cc": "3062ae0d4c3e18a3a1861f9f5f69e90ee78d19cb9016c948e4304f3c5e3790d6",
+    "src/gpgpu-sim/flash/ptx_sched/ptx_scheduler.cc": "079ec0f89121bf4d0336e2fc2e60190f077df90bbb54a54b8e111eec73396335"
+  },
+  "simulation_launches": 6,
+  "simulation_complete": 6,
+  "source_hash_scope": "Capture-time source bytes; only simulator records are included in this package."
+}

@@ -1,0 +1,7 @@
+{
+  "tool": "NVIDIA Nsight Systems version 2025.3.2.474-253236389321v0",
+  "permissions": "ordinary user; no sudo; no CPU sampling or context-switch tracing",
+  "capture": "cudaProfilerApi; CUDA and NVTX; three warmed-up invocations",
+  "privacy": "raw binary and SQLite reports are private; only whitelisted relative records are exported",
+  "counter_access": "NCU hardware counters unavailable; Nsight Systems activity tracing available"
+}

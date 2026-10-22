@@ -1,0 +1,636 @@
+{
+  "kernel": "expert_mm_launch3",
+  "complete": true,
+  "returncode": 0,
+  "timeout": false,
+  "wall_seconds": 6.9781460099620745,
+  "metrics": {
+    "sub_partition_id_mask": 0,
+    "kernel_launch_uid": 1,
+    "kernel_stream_id": 98525336991552,
+    "gpu_sim_cycle": 9092,
+    "gpu_sim_insn": 79424,
+    "gpu_ipc": 8.7356,
+    "gpu_tot_sim_cycle": 9092,
+    "gpu_tot_sim_insn": 79424,
+    "gpu_tot_ipc": 8.7356,
+    "gpu_tot_issued_cta": 4,
+    "max_total_param_size": 0,
+    "gpu_stall_dramfull": 0,
+    "L2_multi_issue_lookup_accepted_sectors": 580,
+    "L2_multi_issue_data_port_accepted_sectors": 1113,
+    "L2_multi_issue_data_port_hit_sectors": 0,
+    "L2_multi_issue_data_port_miss_read_sectors": 564,
+    "L2_multi_issue_data_port_fill_sectors": 549,
+    "L2_multi_issue_data_port_dirty_eviction_sectors": 0,
+    "L2_multi_issue_fill_port_accepted_sectors": 549,
+    "L2_multi_issue_lookup_width_stall_cycles": 0,
+    "L2_multi_issue_data_port_width_stall_cycles": 0,
+    "L2_multi_issue_fill_port_width_stall_cycles": 31,
+    "l2_partition_remote_accesses": 0,
+    "l2_partition_extra_latency_cycles": 0,
+    "gpgpu_l2_rop_delay_output_accepted_items": 580,
+    "gpgpu_l2_rop_delay_output_accepted_sectors": 580,
+    "gpgpu_l2_rop_delay_output_bypassed_items": 0,
+    "gpgpu_l2_rop_delay_output_service_ticks": 457,
+    "gpgpu_l2_rop_delay_output_max_sectors_per_tick": 2,
+    "gpgpu_l2_rop_delay_output_width_limited_ticks": 12,
+    "gpgpu_l2_rop_delay_output_downstream_full_ticks": 0,
+    "gpgpu_l2_rop_delay_output_queue_full_ticks": 0,
+    "gpgpu_l2_request_ingress_transport_accepted_data_sectors": 580,
+    "gpgpu_l2_request_ingress_transport_accepted_control_packets": 0,
+    "gpgpu_l2_request_ingress_transport_width_limited_ticks": 16,
+    "gpgpu_l2_request_ingress_transport_downstream_full_ticks": 0,
+    "gpgpu_l2_request_ingress_transport_service_ticks": 490,
+    "gpgpu_l2_request_ingress_transport_max_service_slots_per_tick": 4,
+    "gpgpu_l2_response_egress_transport_accepted_data_sectors": 564,
+    "gpgpu_l2_response_egress_transport_accepted_control_packets": 16,
+    "gpgpu_l2_response_egress_transport_width_limited_ticks": 0,
+    "gpgpu_l2_response_egress_transport_downstream_full_ticks": 0,
+    "gpgpu_l2_response_egress_transport_service_ticks": 577,
+    "gpgpu_l2_response_egress_transport_max_service_slots_per_tick": 2,
+    "gpgpu_cluster_response_ingress_transport_accepted_data_sectors": 564,
+    "gpgpu_cluster_response_ingress_transport_accepted_control_packets": 16,
+    "gpgpu_cluster_response_ingress_transport_width_limited_ticks": 0,
+    "gpgpu_cluster_response_ingress_transport_downstream_full_ticks": 0,
+    "gpgpu_cluster_response_ingress_transport_service_ticks": 580,
+    "gpgpu_cluster_response_ingress_transport_max_service_slots_per_tick": 1,
+    "gpgpu_cluster_response_dispatch_transport_accepted_data_sectors": 564,
+    "gpgpu_cluster_response_dispatch_transport_accepted_control_packets": 16,
+    "gpgpu_cluster_response_dispatch_transport_width_limited_ticks": 0,
+    "gpgpu_cluster_response_dispatch_transport_downstream_full_ticks": 0,
+    "gpgpu_cluster_response_dispatch_transport_service_ticks": 580,
+    "gpgpu_cluster_response_dispatch_transport_max_service_slots_per_tick": 1,
+    "gpgpu_ldst_ordinary_request_transport_accepted_data_sectors": 0,
+    "gpgpu_ldst_ordinary_request_transport_accepted_control_packets": 0,
+    "gpgpu_ldst_ordinary_request_transport_width_limited_ticks": 0,
+    "gpgpu_ldst_ordinary_request_transport_downstream_full_ticks": 0,
+    "gpgpu_ldst_ordinary_request_transport_service_ticks": 0,
+    "gpgpu_ldst_ordinary_request_transport_max_service_slots_per_tick": 0,
+    "gpgpu_ldst_ordinary_response_transport_accepted_data_sectors": 0,
+    "gpgpu_ldst_ordinary_response_transport_accepted_control_packets": 16,
+    "gpgpu_ldst_ordinary_response_transport_width_limited_ticks": 0,
+    "gpgpu_ldst_ordinary_response_transport_downstream_full_ticks": 0,
+    "gpgpu_ldst_ordinary_response_transport_service_ticks": 16,
+    "gpgpu_ldst_ordinary_response_transport_max_service_slots_per_tick": 1,
+    "tma_max_active_transactions": 0,
+    "tma_max_mf_inflight": 0,
+    "tma_issue_blocked_inflight_cycles": 0,
+    "cp_async_debug_tx_started": 544,
+    "cp_async_debug_tx_completed": 544,
+    "cp_async_debug_mf_issued": 544,
+    "cp_async_debug_mf_responses": 544,
+    "cp_async_debug_bytes_issued": 17408,
+    "cp_async_debug_bytes_completed": 17408,
+    "cp_async_debug_issue_queue_cycles": 136,
+    "cp_async_debug_issue_active_cycles": 136,
+    "cp_async_debug_issue_width_limited_cycles": 120,
+    "cp_async_debug_issue_blocked_inflight_cycles": 0,
+    "cp_async_debug_issue_blocked_icnt_cycles": 0,
+    "cp_async_debug_max_issue_queue": 52,
+    "cp_async_debug_max_inflight": 136,
+    "cp_async_debug_wait_calls": 48,
+    "cp_async_debug_wait_immediate": 44,
+    "cp_async_debug_wait_blocked": 4,
+    "cp_async_debug_wait_releases": 4,
+    "cp_async_debug_waiting_warp_cycles": 3044,
+    "cp_async_debug_response_fifo_nonempty_cycles": 544,
+    "cp_async_debug_response_width_limited_cycles": 0,
+    "cp_async_debug_max_response_fifo": 1,
+    "gpu_stall_icnt2sh": 0,
+    "partiton_level_parallism": 0.0625,
+    "partiton_level_parallism_total": 0.0625,
+    "partiton_level_parallism_util": 8.2319,
+    "partiton_level_parallism_util_total": 8.2319,
+    "L2_tma_coalescing_master_sectors": 0,
+    "L2_tma_coalescing_merged_sectors": 0,
+    "L2_tma_coalescing_max_waiters": 0,
+    "gpu_total_sim_rate": 15884,
+    "gpgpu_n_tot_thrd_icount": 80384,
+    "gpgpu_n_tot_w_icount": 2512,
+    "gpgpu_n_stall_shd_mem": 352,
+    "gpgpu_n_mem_read_local": 0,
+    "gpgpu_n_mem_write_local": 0,
+    "gpgpu_n_mem_read_global": 548,
+    "gpgpu_n_mem_write_global": 16,
+    "gpgpu_n_mem_texture": 0,
+    "gpgpu_n_mem_const": 0,
+    "gpgpu_n_tma_tx_completed": 0,
+    "gpgpu_n_tma_read_tx_completed": 0,
+    "gpgpu_n_tma_write_tx_completed": 0,
+    "gpgpu_n_load_insn": 3584,
+    "gpgpu_n_store_insn": 64,
+    "gpgpu_n_shmem_insn": 5120,
+    "gpgpu_n_sstarr_insn": 0,
+    "gpgpu_n_tex_insn": 0,
+    "gpgpu_n_const_mem_insn": 0,
+    "gpgpu_n_param_mem_insn": 2048,
+    "gpgpu_n_shmem_bkconflict": 352,
+    "gpgpu_n_l1cache_bkconflict": 0,
+    "gpgpu_n_intrawarp_mshr_merge": 0,
+    "gpgpu_n_cmem_portconflict": 0,
+    "gpu_reg_bank_conflict_stalls": 0,
+    "maxmflatency": 869,
+    "max_icnt2mem_latency": 45,
+    "maxmrqlatency": 0,
+    "max_icnt2sh_latency": 3,
+    "averagemflatency": 869,
+    "avg_icnt2mem_latency": 631,
+    "avg_icnt2sh_latency": 11,
+    "total_CMD": 0,
+    "util_bw": 0,
+    "Wasted_Col": 0,
+    "Wasted_Row": 0,
+    "Idle": 0,
+    "RCDc_limit": 0,
+    "RCDWRc_limit": 0,
+    "WTRc_limit": 0,
+    "RTWc_limit": 0,
+    "CCDLc_limit": 0,
+    "rwq": 0,
+    "CCDLc_limit_alone": 0,
+    "WTRc_limit_alone": 0,
+    "RTWc_limit_alone": 0,
+    "n_nop": 0,
+    "Read": 0,
+    "Write": 0,
+    "L2_Alloc": 0,
+    "L2_WB": 0,
+    "n_act": 0,
+    "n_pre": 0,
+    "n_ref": 0,
+    "n_req": 0,
+    "total_req": 0,
+    "issued_total_row": 0,
+    "issued_total_col": 0,
+    "L2_total_cache_accesses": 580,
+    "L2_total_cache_misses": 565,
+    "L2_total_cache_miss_rate": 0.9741,
+    "L2_total_cache_pending_hits": 15,
+    "L2_total_cache_reservation_fails": 0,
+    "icnt_total_pkts_mem_to_simt": 580,
+    "icnt_total_pkts_simt_to_mem": 568,
+    "Req_Network_injected_packets_num": 568,
+    "Req_Network_cycles": 9092,
+    "Req_Network_injected_packets_per_cycle": 0.0625,
+    "Req_Network_conflicts_per_cycle": 0.0064,
+    "Req_Network_conflicts_per_cycle_util": 0.716,
+    "Req_Bank_Level_Parallism": 7.0123,
+    "Req_Network_in_buffer_full_per_cycle": 0.0,
+    "Req_Network_in_buffer_avg_util": 0.0003,
+    "Req_Network_out_buffer_full_per_cycle": 0.0,
+    "Req_Network_out_buffer_avg_util": 0.0015,
+    "Req_Network_tma_multicast_master_sectors": 0,
+    "Req_Network_tma_multicast_merged_sectors": 0,
+    "Req_Network_tma_multicast_max_waiters": 0,
+    "Req_Network_tma_response_multicast_masters": 0,
+    "Req_Network_tma_response_multicast_waiters": 0,
+    "Req_Network_tma_response_multicast_max_waiters": 0,
+    "Req_input_transport_accepted_data_sectors": 580,
+    "Req_input_transport_accepted_control_packets": 0,
+    "Req_input_transport_width_limited_ticks": 0,
+    "Req_input_transport_downstream_full_ticks": 0,
+    "Req_input_transport_service_ticks": 180,
+    "Req_input_transport_max_service_slots_per_tick": 6,
+    "Req_output_transport_accepted_data_sectors": 580,
+    "Req_output_transport_accepted_control_packets": 0,
+    "Req_output_transport_width_limited_ticks": 39,
+    "Req_output_transport_downstream_full_ticks": 0,
+    "Req_output_transport_service_ticks": 522,
+    "Req_output_transport_max_service_slots_per_tick": 4,
+    "Reply_Network_injected_packets_num": 580,
+    "Reply_Network_cycles": 9092,
+    "Reply_Network_injected_packets_per_cycle": 0.0638,
+    "Reply_Network_conflicts_per_cycle": 1.0439,
+    "Reply_Network_conflicts_per_cycle_util": 52.7278,
+    "Reply_Bank_Level_Parallism": 3.2222,
+    "Reply_Network_in_buffer_full_per_cycle": 0.0,
+    "Reply_Network_in_buffer_avg_util": 0.0447,
+    "Reply_Network_out_buffer_full_per_cycle": 0.0,
+    "Reply_Network_out_buffer_avg_util": 0.0004,
+    "Reply_Network_tma_multicast_master_sectors": 0,
+    "Reply_Network_tma_multicast_merged_sectors": 0,
+    "Reply_Network_tma_multicast_max_waiters": 0,
+    "Reply_Network_tma_response_multicast_masters": 0,
+    "Reply_Network_tma_response_multicast_waiters": 0,
+    "Reply_Network_tma_response_multicast_max_waiters": 0,
+    "Reply_input_transport_accepted_data_sectors": 564,
+    "Reply_input_transport_accepted_control_packets": 16,
+    "Reply_input_transport_width_limited_ticks": 18,
+    "Reply_input_transport_downstream_full_ticks": 0,
+    "Reply_input_transport_service_ticks": 558,
+    "Reply_input_transport_max_service_slots_per_tick": 2,
+    "Reply_output_transport_accepted_data_sectors": 564,
+    "Reply_output_transport_accepted_control_packets": 16,
+    "Reply_output_transport_width_limited_ticks": 535,
+    "Reply_output_transport_downstream_full_ticks": 0,
+    "Reply_output_transport_service_ticks": 580,
+    "Reply_output_transport_max_service_slots_per_tick": 1
+  },
+  "ldd": "\tlinux-vdso.so.1 (0x00007fff2af7c000)\n\tlibcudart.so.12 => ${REPO}/tests/moe/run/runtime/libcudart.so.12 (0x00007d4cf2c00000)\n\tlibstdc++.so.6 => ${HOME}/work/mamba-root/envs/flashgpu-env/lib/libstdc++.so.6 (0x00007d4cf2800000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007d4cf2b19000)\n\tlibgcc_s.so.1 => ${HOME}/work/mamba-root/envs/flashgpu-env/lib/libgcc_s.so.1 (0x00007d4cf3141000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007d4cf2400000)\n\tlibz.so.1 => ${HOME}/work/mamba-root/envs/flashgpu-env/lib/libz.so.1 (0x00007d4cf2afe000)\n\tlibgomp.so.1 => ${HOME}/work/mamba-root/envs/flashgpu-env/lib/libgomp.so.1 (0x00007d4cf27a5000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007d4cf318d000)\n\tlibdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007d4cf313a000)\n\tlibpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007d4cf3135000)\n",
+  "runtime_hashes": {
+    "libcudart.so.12": "e7663d4470b36498664d8ecd354df2f9f101358afc1b20039af79c22df6a3dde",
+    "libcuda.so": "e7663d4470b36498664d8ecd354df2f9f101358afc1b20039af79c22df6a3dde"
+  },
+  "config_hashes": {
+    "config_ampere_islip.icnt": "3796695c663983ca84dd3f1bc8cc0326a5330206afa09cb2d399777c6310d99c",
+    "README.md": "7620889a04557cdaf55f2c1201f4d0be6dd4b39a8dbe0d4ec11016bbaf620dfc",
+    "gpgpusim.config": "4131156c15217c9d3e6bf796462ddab93a27ed34cd5ecca85570b50e051cb2f3",
+    "sass_primary_hints.rules": "0b55f85f58aa1b5d2cbb51320378bced809d2f15da0507dc3133ad1aba95366d"
+  },
+  "capture_hashes": {
+    "expert_mm_launch3_harness.cu": "1c9293a1dde00b397089037de24b402721641dd70209faea7c3f8539af96105b",
+    "expert_mm_launch3_kernel.ptx": "63cfd467349910a66bf62f96cf5be58582fbd0c6f87200d3977a2e30da60f5cb",
+    "expert_mm_launch3_kernel.cubin": "0578e08321af95f1a0b7856aa90321c98fd52efa6d833bf434b9da0e4dc9034e",
+    "expert_mm_launch3_kernel.ptxinfo": "178dbb120d5eb3e4d2a2a6360769a0a18301b43c31c7acb18b6a59da95c65270",
+    "expert_mm_launch3_Makefile": "1200f9da2cb3e017cc16afb5bc2a057108999b2cd293e6ba73e10f4f3b5668dd",
+    "expert_mm_launch3_kernel.fatbin": "7a716b76c3b4a660ba7dde7b727d641b17cca70c24f51f72e45b7db3f7c9b256",
+    "expert_mm_launch3_kernel.1.sm_120a.ptx": "b9ab372bfb72b90f84391793f8c0fcf614f3f1c9cd91551ba7ca411d671fd8b9",
+    "expert_mm_launch3_kernel.1.sm_120a.ptxas": "19ac6882e152fb7f2b497a12e27f4ef007dc5f7e386e61037f06dffe3886326c"
+  },
+  "scope": "isolated launch; fresh simulator caches; never an end-to-end pipeline latency",
+  "bf16_validation": {
+    "rtol": 0.02,
+    "atol": 1e-08
+  },
+  "noc_metrics": {
+    "gpgpu_l2_rop_delay_output_service_ticks": 457,
+    "gpgpu_l2_rop_delay_output_width_limited_ticks": 12,
+    "gpgpu_l2_rop_delay_output_downstream_full_ticks": 0,
+    "gpgpu_l2_request_ingress_transport_width_limited_ticks": 16,
+    "gpgpu_l2_request_ingress_transport_downstream_full_ticks": 0,
+    "gpgpu_l2_request_ingress_transport_service_ticks": 490,
+    "gpgpu_l2_request_ingress_transport_max_service_slots_per_tick": 4,
+    "gpgpu_l2_response_egress_transport_width_limited_ticks": 0,
+    "gpgpu_l2_response_egress_transport_downstream_full_ticks": 0,
+    "gpgpu_l2_response_egress_transport_service_ticks": 577,
+    "gpgpu_l2_response_egress_transport_max_service_slots_per_tick": 2,
+    "gpgpu_cluster_response_ingress_transport_width_limited_ticks": 0,
+    "gpgpu_cluster_response_ingress_transport_downstream_full_ticks": 0,
+    "gpgpu_cluster_response_ingress_transport_service_ticks": 580,
+    "gpgpu_cluster_response_ingress_transport_max_service_slots_per_tick": 1,
+    "gpgpu_cluster_response_dispatch_transport_width_limited_ticks": 0,
+    "gpgpu_cluster_response_dispatch_transport_downstream_full_ticks": 0,
+    "gpgpu_cluster_response_dispatch_transport_service_ticks": 580,
+    "gpgpu_cluster_response_dispatch_transport_max_service_slots_per_tick": 1,
+    "gpgpu_ldst_ordinary_request_transport_width_limited_ticks": 0,
+    "gpgpu_ldst_ordinary_request_transport_downstream_full_ticks": 0,
+    "gpgpu_ldst_ordinary_request_transport_service_ticks": 0,
+    "gpgpu_ldst_ordinary_request_transport_max_service_slots_per_tick": 0,
+    "gpgpu_ldst_ordinary_response_transport_width_limited_ticks": 0,
+    "gpgpu_ldst_ordinary_response_transport_downstream_full_ticks": 0,
+    "gpgpu_ldst_ordinary_response_transport_service_ticks": 16,
+    "gpgpu_ldst_ordinary_response_transport_max_service_slots_per_tick": 1,
+    "Req_Network_injected_packets_num": 568,
+    "Req_Network_cycles": 9092,
+    "Req_Network_injected_packets_per_cycle": 0.0625,
+    "Req_Network_conflicts_per_cycle": 0.0064,
+    "Req_Network_conflicts_per_cycle_util": 0.716,
+    "Req_Network_in_buffer_full_per_cycle": 0.0,
+    "Req_Network_in_buffer_avg_util": 0.0003,
+    "Req_Network_out_buffer_full_per_cycle": 0.0,
+    "Req_Network_out_buffer_avg_util": 0.0015,
+    "Req_input_transport_width_limited_ticks": 0,
+    "Req_input_transport_downstream_full_ticks": 0,
+    "Req_input_transport_service_ticks": 180,
+    "Req_input_transport_max_service_slots_per_tick": 6,
+    "Req_output_transport_width_limited_ticks": 39,
+    "Req_output_transport_downstream_full_ticks": 0,
+    "Req_output_transport_service_ticks": 522,
+    "Req_output_transport_max_service_slots_per_tick": 4,
+    "Reply_Network_injected_packets_num": 580,
+    "Reply_Network_cycles": 9092,
+    "Reply_Network_injected_packets_per_cycle": 0.0638,
+    "Reply_Network_conflicts_per_cycle": 1.0439,
+    "Reply_Network_conflicts_per_cycle_util": 52.7278,
+    "Reply_Network_in_buffer_full_per_cycle": 0.0,
+    "Reply_Network_in_buffer_avg_util": 0.0447,
+    "Reply_Network_out_buffer_full_per_cycle": 0.0,
+    "Reply_Network_out_buffer_avg_util": 0.0004,
+    "Reply_input_transport_width_limited_ticks": 18,
+    "Reply_input_transport_downstream_full_ticks": 0,
+    "Reply_input_transport_service_ticks": 558,
+    "Reply_input_transport_max_service_slots_per_tick": 2,
+    "Reply_output_transport_width_limited_ticks": 535,
+    "Reply_output_transport_downstream_full_ticks": 0,
+    "Reply_output_transport_service_ticks": 580,
+    "Reply_output_transport_max_service_slots_per_tick": 1
+  },
+  "noc_hotspots": {
+    "Req_Network_input_pushes_top": [
+      {
+        "node": 0,
+        "count": 142
+      },
+      {
+        "node": 1,
+        "count": 142
+      },
+      {
+        "node": 2,
+        "count": 142
+      },
+      {
+        "node": 3,
+        "count": 142
+      }
+    ],
+    "Req_Network_output_pushes_top": [
+      {
+        "node": 172,
+        "count": 16
+      },
+      {
+        "node": 195,
+        "count": 16
+      },
+      {
+        "node": 198,
+        "count": 16
+      },
+      {
+        "node": 201,
+        "count": 16
+      },
+      {
+        "node": 204,
+        "count": 16
+      },
+      {
+        "node": 207,
+        "count": 16
+      },
+      {
+        "node": 210,
+        "count": 16
+      },
+      {
+        "node": 213,
+        "count": 16
+      }
+    ],
+    "Req_Network_input_grants_top": [
+      {
+        "node": 0,
+        "count": 142
+      },
+      {
+        "node": 1,
+        "count": 142
+      },
+      {
+        "node": 2,
+        "count": 142
+      },
+      {
+        "node": 3,
+        "count": 142
+      }
+    ],
+    "Req_Network_output_grants_top": [
+      {
+        "node": 172,
+        "count": 16
+      },
+      {
+        "node": 195,
+        "count": 16
+      },
+      {
+        "node": 198,
+        "count": 16
+      },
+      {
+        "node": 201,
+        "count": 16
+      },
+      {
+        "node": 204,
+        "count": 16
+      },
+      {
+        "node": 207,
+        "count": 16
+      },
+      {
+        "node": 210,
+        "count": 16
+      },
+      {
+        "node": 213,
+        "count": 16
+      }
+    ],
+    "Req_Network_input_full_events_top": [],
+    "Req_Network_max_input_occupancy_top": [
+      {
+        "node": 0,
+        "count": 10
+      },
+      {
+        "node": 1,
+        "count": 10
+      },
+      {
+        "node": 3,
+        "count": 10
+      },
+      {
+        "node": 2,
+        "count": 6
+      }
+    ],
+    "Req_Network_max_output_occupancy_top": [
+      {
+        "node": 173,
+        "count": 4
+      },
+      {
+        "node": 175,
+        "count": 4
+      },
+      {
+        "node": 195,
+        "count": 4
+      },
+      {
+        "node": 198,
+        "count": 4
+      },
+      {
+        "node": 200,
+        "count": 3
+      },
+      {
+        "node": 201,
+        "count": 3
+      },
+      {
+        "node": 202,
+        "count": 3
+      },
+      {
+        "node": 170,
+        "count": 2
+      }
+    ],
+    "Reply_Network_input_pushes_top": [
+      {
+        "node": 172,
+        "count": 28
+      },
+      {
+        "node": 195,
+        "count": 16
+      },
+      {
+        "node": 198,
+        "count": 16
+      },
+      {
+        "node": 201,
+        "count": 16
+      },
+      {
+        "node": 204,
+        "count": 16
+      },
+      {
+        "node": 207,
+        "count": 16
+      },
+      {
+        "node": 210,
+        "count": 16
+      },
+      {
+        "node": 213,
+        "count": 16
+      }
+    ],
+    "Reply_Network_output_pushes_top": [
+      {
+        "node": 0,
+        "count": 145
+      },
+      {
+        "node": 1,
+        "count": 145
+      },
+      {
+        "node": 2,
+        "count": 145
+      },
+      {
+        "node": 3,
+        "count": 145
+      }
+    ],
+    "Reply_Network_input_grants_top": [
+      {
+        "node": 172,
+        "count": 28
+      },
+      {
+        "node": 195,
+        "count": 16
+      },
+      {
+        "node": 198,
+        "count": 16
+      },
+      {
+        "node": 201,
+        "count": 16
+      },
+      {
+        "node": 204,
+        "count": 16
+      },
+      {
+        "node": 207,
+        "count": 16
+      },
+      {
+        "node": 210,
+        "count": 16
+      },
+      {
+        "node": 213,
+        "count": 16
+      }
+    ],
+    "Reply_Network_output_grants_top": [
+      {
+        "node": 0,
+        "count": 145
+      },
+      {
+        "node": 1,
+        "count": 145
+      },
+      {
+        "node": 2,
+        "count": 145
+      },
+      {
+        "node": 3,
+        "count": 145
+      }
+    ],
+    "Reply_Network_input_full_events_top": [],
+    "Reply_Network_max_input_occupancy_top": [
+      {
+        "node": 195,
+        "count": 11
+      },
+      {
+        "node": 198,
+        "count": 11
+      },
+      {
+        "node": 207,
+        "count": 11
+      },
+      {
+        "node": 210,
+        "count": 11
+      },
+      {
+        "node": 213,
+        "count": 11
+      },
+      {
+        "node": 216,
+        "count": 11
+      },
+      {
+        "node": 201,
+        "count": 10
+      },
+      {
+        "node": 204,
+        "count": 10
+      }
+    ],
+    "Reply_Network_max_output_occupancy_top": [
+      {
+        "node": 0,
+        "count": 1
+      },
+      {
+        "node": 1,
+        "count": 1
+      },
+      {
+        "node": 2,
+        "count": 1
+      },
+      {
+        "node": 3,
+        "count": 1
+      }
+    ]
+  },
+  "log_sha256": "82ec54517fa82c7ed36acffe7af596626eb4f111432147f95128ecacf355e6eb"
+}

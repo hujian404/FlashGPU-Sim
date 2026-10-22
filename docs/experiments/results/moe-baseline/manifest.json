@@ -1,0 +1,26 @@
+{
+  "base_commit": "f44abbe461eff6467ccdc40bcf62b8e692d3f2e4",
+  "source_sha256": {
+    "setup_environment": "fe95555d6b58c4aece9217cf84e713ad2b76d6c102d6c52179af216aad5ed3a1",
+    "tools/TritonTrace/session.py": "ad225461fb06e8304d8818bc8da9d5ff7841f3c493a0c9468f5641da032c51bf",
+    "tests/moe/benchmark.py": "ddccba6d1386b774bd0c751db0d9b55e98ff4b6b61b6a73f147bed9aad89338c",
+    "tests/moe/collect_results.py": "cff53607566b165784870e643df4a549db4d74375c17b7d2c7bd2c2780b8a242",
+    "tests/moe/kernels.py": "3a401e14b7f5f50f5f2fa14a1fadedb650549a3abdf901ba003421842a1c1023",
+    "tests/moe/model.py": "918518391759c44ef300a4733ba4aa894068f6185f68d11a7ed0dcdf1f40d7f2",
+    "tests/moe/replay.py": "f2685d0eb2708558a639eebd3b7c8370b161ce32b9ef8720565ad6aa48e34a9c",
+    "tests/moe/routing.py": "5c63600f35852765012d16dee36b81008cd61994c2c53b1c82185993693356c1",
+    "tests/moe/suite.py": "3c44f92654c36c24ff446d5ef0361a728ee2bdc6636aee61420305ddeb39ed6c",
+    "tests/moe/test_routing.py": "4441723dc2e0bd67261b16b58288cc0781d55a7b42d1c4a5a0dd6109ecb10c3b",
+    "tests/moe/bf16_convert.cu": "3d0ad10fa3539cb960a9d60db823f4e8ab00d2625a375cae6e04b15ab56d0c2a",
+    "src/cuda-sim/instructions.cc": "133da541821dbc710d04e473fc697f501deeb307863196eade2da35a13427f7f",
+    "src/cuda-sim/ptx.l": "ede23aebffd9fd61df8e234eb0aab3304f2955df3d72ca0de1fbacc135a31123",
+    "src/cuda-sim/ptx.y": "1116b9cf680991107f8f2377a4e65fe11b1822b51a703aa69a089ee8ad8b288e",
+    "src/cuda-sim/ptx_ir.cc": "6d1fcc58f2de424a0650dd2e0fbbb6ea47ca124e2ce71b3fd3768c77edec6620",
+    "src/cuda-sim/ptx_parser.cc": "3062ae0d4c3e18a3a1861f9f5f69e90ee78d19cb9016c948e4304f3c5e3790d6",
+    "src/gpgpu-sim/flash/ptx_sched/ptx_scheduler.cc": "079ec0f89121bf4d0336e2fc2e60190f077df90bbb54a54b8e111eec73396335"
+  },
+  "hardware_cases": 32,
+  "simulation_launches": 13,
+  "simulation_complete": 13,
+  "source_hash_scope": "Historical acquisition source bytes before publication privacy and tracing changes; current scripts differ."
+}

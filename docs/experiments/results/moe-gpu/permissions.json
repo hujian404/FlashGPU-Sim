@@ -1,0 +1,6 @@
+{
+  "nsight_systems": "CUDA/NVTX tracing succeeded without sudo",
+  "nsight_compute": "ERR_NVGPUCTRPERM even for gpu__time_duration.sum",
+  "counter_configuration": "unchanged",
+  "checkpoint": "full trained weights not available; range download probe only"
+}

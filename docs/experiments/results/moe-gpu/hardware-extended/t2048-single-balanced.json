@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "kind": "synthetic_moe_block",
+  "validation": "passed",
+  "arguments": {
+    "tokens": 2048,
+    "hidden": 2048,
+    "intermediate": 1024,
+    "experts": 1,
+    "topk": 1,
+    "pattern": "balanced",
+    "mode": "single",
+    "serial": false,
+    "seed": 0,
+    "repeat": 20,
+    "capture": false,
+    "profile": false,
+    "profile_repeat": 3,
+    "route_file": null,
+    "output": "tests/moe/run/hardware-extended/t2048-single-balanced"
+  },
+  "source_sha256": {
+    "benchmark.py": "04bebf505ae83823171fa5a271e360ce5b02fb9c9df4957b4d2f4fb319a2579c",
+    "kernels.py": "3a401e14b7f5f50f5f2fa14a1fadedb650549a3abdf901ba003421842a1c1023",
+    "routing.py": "5c63600f35852765012d16dee36b81008cd61994c2c53b1c82185993693356c1"
+  },
+  "config_sha256": "4131156c15217c9d3e6bf796462ddab93a27ed34cd5ecca85570b50e051cb2f3",
+  "torch": "2.9.0+cu128",
+  "triton": "3.5.0",
+  "gpu": "NVIDIA GeForce RTX 5090, 580.82.07, 787 MiB, 0 %",
+  "expert_counts": [
+    2048
+  ],
+  "max_mean_load": 1.0,
+  "routing_source": "synthetic; equal top-k weights; not model router logits",
+  "median_ms": 0.4121600091457367,
+  "samples_ms": [
+    0.42611199617385864,
+    0.4203200042247772,
+    0.41388800740242004,
+    0.4191359877586365,
+    0.41094401478767395,
+    0.4123840034008026,
+    0.4111360013484955,
+    0.41571199893951416,
+    0.4158720076084137,
+    0.4105919897556305,
+    0.41305598616600037,
+    0.4140160083770752,
+    0.4116159975528717,
+    0.41177600622177124,
+    0.41065600514411926,
+    0.41276800632476807,
+    0.4119360148906708,
+    0.41097599267959595,
+    0.4104959964752197,
+    0.41065600514411926
+  ],
+  "analytical_not_measured": {
+    "resident_weight_bytes": 12582912,
+    "active_unique_weight_bytes": 12582912,
+    "dispatch_payload_bytes": 8388608,
+    "combine_input_payload_bytes": 8388608,
+    "expert_gemm_flops": 25769803776
+  }
+}

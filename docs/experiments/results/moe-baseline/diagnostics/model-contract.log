@@ -1,0 +1,2 @@
+contract torch.Size([1, 3, 128]) [torch.Size([3, 4]), torch.Size([3, 4])]
+decode torch.Size([1, 1, 128])

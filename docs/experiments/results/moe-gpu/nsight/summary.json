@@ -1,0 +1,1326 @@
+[
+  {
+    "case": "t1-block-balanced",
+    "tokens": 1,
+    "mode": "block",
+    "pattern": "balanced",
+    "serial": false,
+    "kernel_count": 18,
+    "gpu_kernel_sum_ms_per_invocation": 0.053823666666666665,
+    "gpu_active_fraction_of_trace_span": 0.11434408526006444,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.000992,
+        "median_kernel_us": 0.992
+      },
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.018293,
+        "median_kernel_us": 18.752
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.017386666666666665,
+        "median_kernel_us": 17.184
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0009066666666666667,
+        "median_kernel_us": 0.896
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.014976000000000001,
+        "median_kernel_us": 12.512
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0012693333333333335,
+        "median_kernel_us": 1.248
+      }
+    }
+  },
+  {
+    "case": "t1-block-balanced-serial",
+    "tokens": 1,
+    "mode": "block",
+    "pattern": "balanced",
+    "serial": true,
+    "kernel_count": 81,
+    "gpu_kernel_sum_ms_per_invocation": 0.29959033333333335,
+    "gpu_active_fraction_of_trace_span": 0.1721142218081577,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0010133333333333333,
+        "median_kernel_us": 0.96
+      },
+      "Gate": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.11691633333333333,
+        "median_kernel_us": 14.592
+      },
+      "Up": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.116585,
+        "median_kernel_us": 14.5915
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0010666666666666667,
+        "median_kernel_us": 1.056
+      },
+      "Down": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.062729,
+        "median_kernel_us": 7.712
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.00128,
+        "median_kernel_us": 1.28
+      }
+    }
+  },
+  {
+    "case": "t1-block-random",
+    "tokens": 1,
+    "mode": "block",
+    "pattern": "random",
+    "serial": false,
+    "kernel_count": 18,
+    "gpu_kernel_sum_ms_per_invocation": 0.05448533333333333,
+    "gpu_active_fraction_of_trace_span": 0.10644618885185606,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0009386666666666666,
+        "median_kernel_us": 0.96
+      },
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.018528,
+        "median_kernel_us": 18.56
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.018346666666666667,
+        "median_kernel_us": 18.432
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0009706666666666667,
+        "median_kernel_us": 0.96
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.014784,
+        "median_kernel_us": 15.072
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0009173333333333334,
+        "median_kernel_us": 0.928
+      }
+    }
+  },
+  {
+    "case": "t1-block-random-serial",
+    "tokens": 1,
+    "mode": "block",
+    "pattern": "random",
+    "serial": true,
+    "kernel_count": 81,
+    "gpu_kernel_sum_ms_per_invocation": 0.298514,
+    "gpu_active_fraction_of_trace_span": 0.17705407695589612,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0008746666666666667,
+        "median_kernel_us": 0.8
+      },
+      "Gate": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.11639366666666667,
+        "median_kernel_us": 14.5755
+      },
+      "Up": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.11623299999999999,
+        "median_kernel_us": 14.48
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0009386666666666666,
+        "median_kernel_us": 0.928
+      },
+      "Down": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.06312466666666666,
+        "median_kernel_us": 7.856
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0009493333333333333,
+        "median_kernel_us": 0.96
+      }
+    }
+  },
+  {
+    "case": "t1-block-hotspot",
+    "tokens": 1,
+    "mode": "block",
+    "pattern": "hotspot",
+    "serial": false,
+    "kernel_count": 18,
+    "gpu_kernel_sum_ms_per_invocation": 0.050975,
+    "gpu_active_fraction_of_trace_span": 0.10337988160240337,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0010346666666666666,
+        "median_kernel_us": 1.056
+      },
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.017194333333333332,
+        "median_kernel_us": 16.992
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.017279333333333334,
+        "median_kernel_us": 16.991
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0009173333333333334,
+        "median_kernel_us": 0.928
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.013312,
+        "median_kernel_us": 12.544
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0012373333333333333,
+        "median_kernel_us": 1.248
+      }
+    }
+  },
+  {
+    "case": "t1-block-hotspot-serial",
+    "tokens": 1,
+    "mode": "block",
+    "pattern": "hotspot",
+    "serial": true,
+    "kernel_count": 81,
+    "gpu_kernel_sum_ms_per_invocation": 0.30390233333333333,
+    "gpu_active_fraction_of_trace_span": 0.23470654184435139,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.000992,
+        "median_kernel_us": 0.992
+      },
+      "Gate": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.11787633333333335,
+        "median_kernel_us": 14.72
+      },
+      "Up": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.11800500000000001,
+        "median_kernel_us": 14.784
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0010773333333333334,
+        "median_kernel_us": 1.088
+      },
+      "Down": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.06468233333333333,
+        "median_kernel_us": 7.824
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0012693333333333335,
+        "median_kernel_us": 1.28
+      }
+    }
+  },
+  {
+    "case": "t16-block-balanced",
+    "tokens": 16,
+    "mode": "block",
+    "pattern": "balanced",
+    "serial": false,
+    "kernel_count": 18,
+    "gpu_kernel_sum_ms_per_invocation": 0.657393,
+    "gpu_active_fraction_of_trace_span": 0.9339021158634354,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0014186666666666668,
+        "median_kernel_us": 1.376
+      },
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.22457433333333332,
+        "median_kernel_us": 224.158
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.223444,
+        "median_kernel_us": 223.838
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0017493333333333334,
+        "median_kernel_us": 1.664
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.20454266666666665,
+        "median_kernel_us": 205.502
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.001664,
+        "median_kernel_us": 1.632
+      }
+    }
+  },
+  {
+    "case": "t16-block-balanced-serial",
+    "tokens": 16,
+    "mode": "block",
+    "pattern": "balanced",
+    "serial": true,
+    "kernel_count": 585,
+    "gpu_kernel_sum_ms_per_invocation": 2.3889376666666666,
+    "gpu_active_fraction_of_trace_span": 0.34100509341770674,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0013866666666666665,
+        "median_kernel_us": 1.344
+      },
+      "Gate": {
+        "launches": 192,
+        "total_ms_per_invocation": 0.9431523333333334,
+        "median_kernel_us": 14.704
+      },
+      "Up": {
+        "launches": 192,
+        "total_ms_per_invocation": 0.9413926666666667,
+        "median_kernel_us": 14.688
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.001568,
+        "median_kernel_us": 1.568
+      },
+      "Down": {
+        "launches": 192,
+        "total_ms_per_invocation": 0.49984866666666666,
+        "median_kernel_us": 7.808
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0015893333333333332,
+        "median_kernel_us": 1.6
+      }
+    }
+  },
+  {
+    "case": "t16-block-random",
+    "tokens": 16,
+    "mode": "block",
+    "pattern": "random",
+    "serial": false,
+    "kernel_count": 18,
+    "gpu_kernel_sum_ms_per_invocation": 0.502397,
+    "gpu_active_fraction_of_trace_span": 0.8837103626681739,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0014080000000000002,
+        "median_kernel_us": 1.344
+      },
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.16837233333333335,
+        "median_kernel_us": 168.735
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.165343,
+        "median_kernel_us": 165.887
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0024746666666666667,
+        "median_kernel_us": 2.432
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.163231,
+        "median_kernel_us": 163.423
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.001568,
+        "median_kernel_us": 1.536
+      }
+    }
+  },
+  {
+    "case": "t16-block-random-serial",
+    "tokens": 16,
+    "mode": "block",
+    "pattern": "random",
+    "serial": true,
+    "kernel_count": 486,
+    "gpu_kernel_sum_ms_per_invocation": 2.0189743333333334,
+    "gpu_active_fraction_of_trace_span": 0.33980395917879835,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0013759999999999998,
+        "median_kernel_us": 1.312
+      },
+      "Gate": {
+        "launches": 159,
+        "total_ms_per_invocation": 0.796912,
+        "median_kernel_us": 15.008
+      },
+      "Up": {
+        "launches": 159,
+        "total_ms_per_invocation": 0.7965496666666666,
+        "median_kernel_us": 15.008
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0020373333333333333,
+        "median_kernel_us": 2.048
+      },
+      "Down": {
+        "launches": 159,
+        "total_ms_per_invocation": 0.42060600000000004,
+        "median_kernel_us": 7.936
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0014933333333333333,
+        "median_kernel_us": 1.504
+      }
+    }
+  },
+  {
+    "case": "t16-block-hotspot",
+    "tokens": 16,
+    "mode": "block",
+    "pattern": "hotspot",
+    "serial": false,
+    "kernel_count": 18,
+    "gpu_kernel_sum_ms_per_invocation": 0.057865,
+    "gpu_active_fraction_of_trace_span": 0.114354769541494,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0013543333333333333,
+        "median_kernel_us": 1.375
+      },
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.018677333333333334,
+        "median_kernel_us": 19.104
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.018314,
+        "median_kernel_us": 17.887
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0025813333333333335,
+        "median_kernel_us": 2.592
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.015636666666666667,
+        "median_kernel_us": 13.247
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0013013333333333334,
+        "median_kernel_us": 1.312
+      }
+    }
+  },
+  {
+    "case": "t16-block-hotspot-serial",
+    "tokens": 16,
+    "mode": "block",
+    "pattern": "hotspot",
+    "serial": true,
+    "kernel_count": 81,
+    "gpu_kernel_sum_ms_per_invocation": 0.3040523333333333,
+    "gpu_active_fraction_of_trace_span": 0.22790404592475513,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0014186666666666668,
+        "median_kernel_us": 1.44
+      },
+      "Gate": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.11793066666666667,
+        "median_kernel_us": 14.784
+      },
+      "Up": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.117535,
+        "median_kernel_us": 14.656
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.00256,
+        "median_kernel_us": 2.56
+      },
+      "Down": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.06331733333333334,
+        "median_kernel_us": 7.888
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0012906666666666667,
+        "median_kernel_us": 1.28
+      }
+    }
+  },
+  {
+    "case": "t128-block-balanced",
+    "tokens": 128,
+    "mode": "block",
+    "pattern": "balanced",
+    "serial": false,
+    "kernel_count": 18,
+    "gpu_kernel_sum_ms_per_invocation": 0.714683,
+    "gpu_active_fraction_of_trace_span": 0.9383372466295687,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0049173333333333335,
+        "median_kernel_us": 4.8
+      },
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.23904866666666666,
+        "median_kernel_us": 239.166
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.23889933333333332,
+        "median_kernel_us": 239.358
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.003968,
+        "median_kernel_us": 3.968
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.22517233333333334,
+        "median_kernel_us": 226.047
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.002677333333333333,
+        "median_kernel_us": 2.656
+      }
+    }
+  },
+  {
+    "case": "t128-block-balanced-serial",
+    "tokens": 128,
+    "mode": "block",
+    "pattern": "balanced",
+    "serial": true,
+    "kernel_count": 585,
+    "gpu_kernel_sum_ms_per_invocation": 2.447016,
+    "gpu_active_fraction_of_trace_span": 0.3687776524916517,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.004896,
+        "median_kernel_us": 4.704
+      },
+      "Gate": {
+        "launches": 192,
+        "total_ms_per_invocation": 0.961471,
+        "median_kernel_us": 14.912
+      },
+      "Up": {
+        "launches": 192,
+        "total_ms_per_invocation": 0.9516613333333334,
+        "median_kernel_us": 14.8795
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0035303333333333332,
+        "median_kernel_us": 3.52
+      },
+      "Down": {
+        "launches": 192,
+        "total_ms_per_invocation": 0.5223853333333334,
+        "median_kernel_us": 8.2235
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.003072,
+        "median_kernel_us": 3.04
+      }
+    }
+  },
+  {
+    "case": "t128-block-random",
+    "tokens": 128,
+    "mode": "block",
+    "pattern": "random",
+    "serial": false,
+    "kernel_count": 18,
+    "gpu_kernel_sum_ms_per_invocation": 0.6570943333333333,
+    "gpu_active_fraction_of_trace_span": 0.9178448873927356,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.004906666666666667,
+        "median_kernel_us": 4.704
+      },
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.21959333333333333,
+        "median_kernel_us": 219.679
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.21918766666666667,
+        "median_kernel_us": 220.543
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.00432,
+        "median_kernel_us": 4.256
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.206452,
+        "median_kernel_us": 206.079
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0026346666666666667,
+        "median_kernel_us": 2.592
+      }
+    }
+  },
+  {
+    "case": "t128-block-random-serial",
+    "tokens": 128,
+    "mode": "block",
+    "pattern": "random",
+    "serial": true,
+    "kernel_count": 585,
+    "gpu_kernel_sum_ms_per_invocation": 2.4549296666666667,
+    "gpu_active_fraction_of_trace_span": 0.3685966754680298,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0047680000000000005,
+        "median_kernel_us": 4.736
+      },
+      "Gate": {
+        "launches": 192,
+        "total_ms_per_invocation": 0.9659356666666666,
+        "median_kernel_us": 14.976
+      },
+      "Up": {
+        "launches": 192,
+        "total_ms_per_invocation": 0.9541273333333334,
+        "median_kernel_us": 14.88
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.004096,
+        "median_kernel_us": 4.096
+      },
+      "Down": {
+        "launches": 192,
+        "total_ms_per_invocation": 0.5229093333333333,
+        "median_kernel_us": 8.144
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0030933333333333334,
+        "median_kernel_us": 3.168
+      }
+    }
+  },
+  {
+    "case": "t128-block-hotspot",
+    "tokens": 128,
+    "mode": "block",
+    "pattern": "hotspot",
+    "serial": false,
+    "kernel_count": 18,
+    "gpu_kernel_sum_ms_per_invocation": 0.23710799999999999,
+    "gpu_active_fraction_of_trace_span": 0.4801603855733987,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.004896,
+        "median_kernel_us": 4.704
+      },
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.07094366666666667,
+        "median_kernel_us": 71.008
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.07139133333333333,
+        "median_kernel_us": 71.167
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.016362666666666668,
+        "median_kernel_us": 16.384
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.071477,
+        "median_kernel_us": 71.616
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0020373333333333333,
+        "median_kernel_us": 2.048
+      }
+    }
+  },
+  {
+    "case": "t128-block-hotspot-serial",
+    "tokens": 128,
+    "mode": "block",
+    "pattern": "hotspot",
+    "serial": true,
+    "kernel_count": 81,
+    "gpu_kernel_sum_ms_per_invocation": 0.347742,
+    "gpu_active_fraction_of_trace_span": 0.2439830740960842,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.004896,
+        "median_kernel_us": 4.704
+      },
+      "Gate": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.11941299999999999,
+        "median_kernel_us": 14.864
+      },
+      "Up": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.12204733333333334,
+        "median_kernel_us": 15.264
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.016053333333333333,
+        "median_kernel_us": 16.064
+      },
+      "Down": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.08350833333333334,
+        "median_kernel_us": 10.464
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.001824,
+        "median_kernel_us": 1.824
+      }
+    }
+  },
+  {
+    "case": "t512-block-balanced",
+    "tokens": 512,
+    "mode": "block",
+    "pattern": "balanced",
+    "serial": false,
+    "kernel_count": 18,
+    "gpu_kernel_sum_ms_per_invocation": 0.8056376666666667,
+    "gpu_active_fraction_of_trace_span": 0.9517979863057449,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.017204666666666667,
+        "median_kernel_us": 16.735
+      },
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.26073466666666667,
+        "median_kernel_us": 256.735
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.256766,
+        "median_kernel_us": 254.526
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.011242666666666666,
+        "median_kernel_us": 11.2
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.25106033333333333,
+        "median_kernel_us": 249.567
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.008629333333333334,
+        "median_kernel_us": 8.672
+      }
+    }
+  },
+  {
+    "case": "t512-block-balanced-serial",
+    "tokens": 512,
+    "mode": "block",
+    "pattern": "balanced",
+    "serial": true,
+    "kernel_count": 585,
+    "gpu_kernel_sum_ms_per_invocation": 2.5598,
+    "gpu_active_fraction_of_trace_span": 0.3579744169071102,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.016789333333333333,
+        "median_kernel_us": 16.128
+      },
+      "Gate": {
+        "launches": 192,
+        "total_ms_per_invocation": 0.9960140000000001,
+        "median_kernel_us": 15.3915
+      },
+      "Up": {
+        "launches": 192,
+        "total_ms_per_invocation": 0.9722383333333333,
+        "median_kernel_us": 15.1675
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.011306666666666666,
+        "median_kernel_us": 11.232
+      },
+      "Down": {
+        "launches": 192,
+        "total_ms_per_invocation": 0.5550036666666667,
+        "median_kernel_us": 8.704
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.008447999999999999,
+        "median_kernel_us": 8.544
+      }
+    }
+  },
+  {
+    "case": "t512-block-random",
+    "tokens": 512,
+    "mode": "block",
+    "pattern": "random",
+    "serial": false,
+    "kernel_count": 18,
+    "gpu_kernel_sum_ms_per_invocation": 0.8637173333333333,
+    "gpu_active_fraction_of_trace_span": 0.9524109174953981,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.017098666666666668,
+        "median_kernel_us": 16.576
+      },
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.2786013333333333,
+        "median_kernel_us": 273.695
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.27682999999999996,
+        "median_kernel_us": 273.79
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.012437333333333333,
+        "median_kernel_us": 12.544
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.26994999999999997,
+        "median_kernel_us": 269.022
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.0088,
+        "median_kernel_us": 8.8
+      }
+    }
+  },
+  {
+    "case": "t512-block-random-serial",
+    "tokens": 512,
+    "mode": "block",
+    "pattern": "random",
+    "serial": true,
+    "kernel_count": 585,
+    "gpu_kernel_sum_ms_per_invocation": 2.552547666666667,
+    "gpu_active_fraction_of_trace_span": 0.37653449384924015,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.016864,
+        "median_kernel_us": 16.192
+      },
+      "Gate": {
+        "launches": 192,
+        "total_ms_per_invocation": 0.9924836666666667,
+        "median_kernel_us": 15.296
+      },
+      "Up": {
+        "launches": 192,
+        "total_ms_per_invocation": 0.96457,
+        "median_kernel_us": 15.072
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.011946333333333335,
+        "median_kernel_us": 11.904
+      },
+      "Down": {
+        "launches": 192,
+        "total_ms_per_invocation": 0.558033,
+        "median_kernel_us": 8.768
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.008650666666666666,
+        "median_kernel_us": 8.672
+      }
+    }
+  },
+  {
+    "case": "t512-block-hotspot",
+    "tokens": 512,
+    "mode": "block",
+    "pattern": "hotspot",
+    "serial": false,
+    "kernel_count": 18,
+    "gpu_kernel_sum_ms_per_invocation": 0.8955783333333334,
+    "gpu_active_fraction_of_trace_span": 0.9526837873536217,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.016885,
+        "median_kernel_us": 16.256
+      },
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.2603823333333333,
+        "median_kernel_us": 257.375
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.2572143333333333,
+        "median_kernel_us": 255.902
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.062069000000000006,
+        "median_kernel_us": 62.048
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.295113,
+        "median_kernel_us": 295.422
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.003914666666666666,
+        "median_kernel_us": 3.904
+      }
+    }
+  },
+  {
+    "case": "t512-block-hotspot-serial",
+    "tokens": 512,
+    "mode": "block",
+    "pattern": "hotspot",
+    "serial": true,
+    "kernel_count": 81,
+    "gpu_kernel_sum_ms_per_invocation": 0.9326340000000001,
+    "gpu_active_fraction_of_trace_span": 0.48972469786708495,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.01696,
+        "median_kernel_us": 16.48
+      },
+      "Gate": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.27842,
+        "median_kernel_us": 34.96
+      },
+      "Up": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.278078,
+        "median_kernel_us": 34.768
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.062238999999999996,
+        "median_kernel_us": 62.175
+      },
+      "Down": {
+        "launches": 24,
+        "total_ms_per_invocation": 0.292969,
+        "median_kernel_us": 36.719
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.003968,
+        "median_kernel_us": 3.968
+      }
+    }
+  },
+  {
+    "case": "t2048-block-balanced",
+    "tokens": 2048,
+    "mode": "block",
+    "pattern": "balanced",
+    "serial": false,
+    "kernel_count": 18,
+    "gpu_kernel_sum_ms_per_invocation": 3.0288343333333336,
+    "gpu_active_fraction_of_trace_span": 0.9912137463678325,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.06412733333333333,
+        "median_kernel_us": 62.208
+      },
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.9701913333333333,
+        "median_kernel_us": 962.714
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.9620313333333333,
+        "median_kernel_us": 962.266
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.04369033333333333,
+        "median_kernel_us": 44.8
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.956709,
+        "median_kernel_us": 957.274
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.032084999999999995,
+        "median_kernel_us": 32.096
+      }
+    }
+  },
+  {
+    "case": "t2048-block-balanced-serial",
+    "tokens": 2048,
+    "mode": "block",
+    "pattern": "balanced",
+    "serial": true,
+    "kernel_count": 585,
+    "gpu_kernel_sum_ms_per_invocation": 3.6644393333333336,
+    "gpu_active_fraction_of_trace_span": 0.5243851853378263,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.06396766666666666,
+        "median_kernel_us": 61.983
+      },
+      "Gate": {
+        "launches": 192,
+        "total_ms_per_invocation": 1.213007,
+        "median_kernel_us": 18.96
+      },
+      "Up": {
+        "launches": 192,
+        "total_ms_per_invocation": 1.2054653333333334,
+        "median_kernel_us": 18.7035
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.04227166666666667,
+        "median_kernel_us": 41.792
+      },
+      "Down": {
+        "launches": 192,
+        "total_ms_per_invocation": 1.1078663333333334,
+        "median_kernel_us": 17.311
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.03186133333333333,
+        "median_kernel_us": 31.776
+      }
+    }
+  },
+  {
+    "case": "t2048-block-random",
+    "tokens": 2048,
+    "mode": "block",
+    "pattern": "random",
+    "serial": false,
+    "kernel_count": 18,
+    "gpu_kernel_sum_ms_per_invocation": 3.0923336666666668,
+    "gpu_active_fraction_of_trace_span": 0.9970765893815062,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.06225,
+        "median_kernel_us": 61.984
+      },
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.9892423333333333,
+        "median_kernel_us": 983.546
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.985328,
+        "median_kernel_us": 985.307
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.042186,
+        "median_kernel_us": 42.143
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.9807199999999999,
+        "median_kernel_us": 981.083
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.032607333333333335,
+        "median_kernel_us": 32.607
+      }
+    }
+  },
+  {
+    "case": "t2048-block-random-serial",
+    "tokens": 2048,
+    "mode": "block",
+    "pattern": "random",
+    "serial": true,
+    "kernel_count": 585,
+    "gpu_kernel_sum_ms_per_invocation": 3.4999936666666667,
+    "gpu_active_fraction_of_trace_span": 0.5026496867146384,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.06391433333333334,
+        "median_kernel_us": 62.047
+      },
+      "Gate": {
+        "launches": 192,
+        "total_ms_per_invocation": 1.179589,
+        "median_kernel_us": 18.288
+      },
+      "Up": {
+        "launches": 192,
+        "total_ms_per_invocation": 1.160496,
+        "median_kernel_us": 17.952
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.04260266666666667,
+        "median_kernel_us": 42.624
+      },
+      "Down": {
+        "launches": 192,
+        "total_ms_per_invocation": 1.0211146666666666,
+        "median_kernel_us": 14.816
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.032277,
+        "median_kernel_us": 32.256
+      }
+    }
+  },
+  {
+    "case": "t2048-block-hotspot",
+    "tokens": 2048,
+    "mode": "block",
+    "pattern": "hotspot",
+    "serial": false,
+    "kernel_count": 18,
+    "gpu_kernel_sum_ms_per_invocation": 3.654999,
+    "gpu_active_fraction_of_trace_span": 0.9869239072008652,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.065194,
+        "median_kernel_us": 65.823
+      },
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 1.0662876666666665,
+        "median_kernel_us": 1061.594
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 1.0742026666666666,
+        "median_kernel_us": 1075.003
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.253054,
+        "median_kernel_us": 252.99
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 1.1794286666666667,
+        "median_kernel_us": 1180.122
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.016832,
+        "median_kernel_us": 16.864
+      }
+    }
+  },
+  {
+    "case": "t2048-block-hotspot-serial",
+    "tokens": 2048,
+    "mode": "block",
+    "pattern": "hotspot",
+    "serial": true,
+    "kernel_count": 81,
+    "gpu_kernel_sum_ms_per_invocation": 3.3701993333333333,
+    "gpu_active_fraction_of_trace_span": 0.9770154995162561,
+    "stages": {
+      "Dispatch": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.06282633333333333,
+        "median_kernel_us": 62.08
+      },
+      "Gate": {
+        "launches": 24,
+        "total_ms_per_invocation": 1.0186073333333334,
+        "median_kernel_us": 126.559
+      },
+      "Up": {
+        "launches": 24,
+        "total_ms_per_invocation": 1.0102659999999999,
+        "median_kernel_us": 126.1435
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.25127333333333335,
+        "median_kernel_us": 251.295
+      },
+      "Down": {
+        "launches": 24,
+        "total_ms_per_invocation": 1.0104796666666667,
+        "median_kernel_us": 125.983
+      },
+      "Combine": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.016746666666666667,
+        "median_kernel_us": 16.8
+      }
+    }
+  },
+  {
+    "case": "t1-single-balanced",
+    "tokens": 1,
+    "mode": "single",
+    "pattern": "balanced",
+    "serial": false,
+    "kernel_count": 12,
+    "gpu_kernel_sum_ms_per_invocation": 0.020170666666666667,
+    "gpu_active_fraction_of_trace_span": 0.05834298292384039,
+    "stages": {
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.00784,
+        "median_kernel_us": 7.424
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.007402666666666666,
+        "median_kernel_us": 7.392
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.000832,
+        "median_kernel_us": 0.832
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.004096,
+        "median_kernel_us": 4.096
+      }
+    }
+  },
+  {
+    "case": "t128-single-balanced",
+    "tokens": 128,
+    "mode": "single",
+    "pattern": "balanced",
+    "serial": false,
+    "kernel_count": 12,
+    "gpu_kernel_sum_ms_per_invocation": 0.030869333333333332,
+    "gpu_active_fraction_of_trace_span": 0.09095239357966928,
+    "stages": {
+      "Gate": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.009685333333333332,
+        "median_kernel_us": 9.344
+      },
+      "Up": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.009397333333333332,
+        "median_kernel_us": 9.376
+      },
+      "SwiGLU": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.001024,
+        "median_kernel_us": 1.024
+      },
+      "Down": {
+        "launches": 3,
+        "total_ms_per_invocation": 0.010762666666666665,
+        "median_kernel_us": 10.752
+      }
+    }
+  }
+]

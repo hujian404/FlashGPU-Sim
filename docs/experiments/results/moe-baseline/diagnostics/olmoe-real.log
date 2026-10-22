@@ -1,0 +1,4 @@
+Sanitized diagnostic summary
+Trained checkpoint loading was not completed. Hub-client connections timed out.
+Config/index retrieval and a partial range download do not establish complete checkpoint availability.
+No trained-checkpoint performance or quality result is claimed.
